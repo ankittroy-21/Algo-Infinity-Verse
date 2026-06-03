@@ -2861,6 +2861,58 @@ function formatCode() {
   updateLineNumbers();
   showNotification("Code formatted", "info");
 }
+// Copy code to clipboard
+function copyCode() {
+    const editor = document.getElementById('codeEditor');
+    const code = editor.value;
+
+    if (!code.trim()) {
+        showCopyFeedback('Nothing to copy!', false);
+        return;
+    }
+
+    // Modern Clipboard API with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code)
+            .then(() => showCopyFeedback('Copied!', true))
+            .catch(() => fallbackCopy(code));
+    } else {
+        fallbackCopy(code);
+    }
+}
+
+function fallbackCopy(text) {
+    // Fallback for HTTP or older browsers
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    try {
+        document.execCommand('copy');
+        showCopyFeedback('Copied!', true);
+    } catch {
+        showCopyFeedback('Copy failed — please copy manually.', false);
+    }
+    document.body.removeChild(textarea);
+}
+
+function showCopyFeedback(message, success) {
+    const btn = document.getElementById('copyCodeBtn');
+    if (!btn) return;
+
+    const original = btn.innerHTML;
+    btn.innerHTML = success
+        ? '<i class="fas fa-check"></i> ' + message
+        : '<i class="fas fa-times"></i> ' + message;
+    btn.style.color = success ? '#22c55e' : '#ef4444';
+
+    setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.color = '';
+    }, 2000);
+}
 
 // Toggle line comment
 function toggleLineComment() {
