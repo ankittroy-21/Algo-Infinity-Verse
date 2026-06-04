@@ -1,0 +1,16 @@
+{
+  "name": "algo-infinity-verse",
+  "version": "1.0.0",
+  "description": "Interactive DSA learning platform with secure local authentication.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "dsa",
+    "algorithms",
+    "authentication"
+  ],
+  "license": "MIT"
+}
