@@ -1034,7 +1034,7 @@ const chatbotResponses = {
 
 // ===== STATE MANAGEMENT =====
 let userProgress = {
-  name: "Learner",
+name: "Learner",
   avatar: "🚀",
   completedProblems: [],
   completedDailyChallenges: [],
@@ -1051,6 +1051,7 @@ let userProgress = {
   lastActive: null,
   quizScores: {}, // topic -> { bestScore, attempts, totalXP }
   bestQuizTimes: {},
+  activityData: {}, // date-string -> count (e.g. "2026-06-05" -> 3)
 };
 
 applySavedTheme();
@@ -2494,6 +2495,7 @@ function updateDashboard() {
 
   updateCurrentDate();
   updateActivityList();
+  renderActivityHeatmap();
   if (typeof updateFreezeHistoryList === "function") {
     updateFreezeHistoryList();
   }
@@ -3322,6 +3324,12 @@ function loadUserData() {
       if (hadCorruption) {
         saveUserData();
       }
+      if (!userProgress.activityData) {
+        userProgress.activityData = {};
+      }
+
+      // Backfill activity heatmap from existing completed problems
+      backfillActivityData();
 
       // Update streak if user was active yesterday
       if (userProgress.lastActive) {
@@ -3364,6 +3372,8 @@ function loadUserData() {
       userProgress.streak = 3;
       userProgress.badges = [1];
       userProgress.quizScores = {};
+      userProgress.activityData = {};
+      backfillActivityData();
       saveUserData();
     }
   } catch (error) {
@@ -3382,6 +3392,7 @@ function loadUserData() {
       lastActive: null,
       quizScores: {},
       bestQuizTimes: {},
+      activityData: {},
     };
     saveUserData();
   }
@@ -3490,6 +3501,7 @@ function submitQuizCode() {
   const difficulty = currentProblem.difficulty; // Store difficulty before closing editor
   addXP(getXPForDifficulty(difficulty));
   updateStreak();
+  recordDailyActivity(1);
   saveUserData();
 
   // Update UI
@@ -3497,6 +3509,7 @@ function submitQuizCode() {
   updateGamification();
   initRoadmap();
   initTopicsSection();
+  renderActivityHeatmap();
 
   closeQuizEditor();
   showNotification(
@@ -3715,6 +3728,252 @@ function executeCode(code, lang) {
 function getXPForDifficulty(difficulty) {
   const xpMap = { easy: 100, medium: 250, hard: 500 };
   return xpMap[difficulty.toLowerCase()] || 100;
+}
+
+// ===== ACTIVITY HEATMAP =====
+function recordDailyActivity(problemCount = 1) {
+  if (!userProgress.activityData) {
+    userProgress.activityData = {};
+  }
+  const today = new Date();
+  const dateKey = formatDateKey(today);
+  userProgress.activityData[dateKey] = (userProgress.activityData[dateKey] || 0) + problemCount;
+}
+
+function backfillActivityData() {
+  if (!userProgress.activityData) {
+    userProgress.activityData = {};
+  }
+  const lastActive = userProgress.lastActive
+    ? new Date(userProgress.lastActive)
+    : null;
+  const anchor = lastActive || new Date();
+  const total = userProgress.completedProblems.length;
+
+  if (total > 0) {
+    const today = new Date();
+    let day = new Date(anchor);
+    for (let i = 0; i < total; i++) {
+      const key = formatDateKey(day);
+      if (!userProgress.activityData[key]) {
+        userProgress.activityData[key] = 1;
+      } else {
+        userProgress.activityData[key] += 1;
+      }
+      day.setDate(day.getDate() - 1);
+      if (day > today) {
+        day.setDate(today.getDate());
+        break;
+      }
+    }
+  }
+}
+
+function formatDateKey(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function parseDateKey(key) {
+  const [y, m, d] = key.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function getActivityLevel(count) {
+  if (!count || count === 0) return 0;
+  if (count === 1) return 1;
+  if (count === 2) return 2;
+  if (count <= 4) return 3;
+  return 4;
+}
+
+function renderActivityHeatmap() {
+  const container = document.getElementById("activityHeatmap");
+  if (!container) return;
+
+  const activityData = userProgress.activityData || {};
+  const today = new Date();
+  today.setHours(23, 59, 59, 999);
+
+  // Show 52 weeks (roughly one year) of data
+  const WEEKS_TO_SHOW = 52; // 1 year
+  const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+  // Start from today, go back WEEKS_TO_SHOW weeks
+  // Align to Sunday (start of week)
+  const dayOfWeek = today.getDay(); // 0=Sun
+  const endDate = new Date(today);
+  const startDate = new Date(today);
+  startDate.setDate(startDate.getDate() - (WEEKS_TO_SHOW * 7 - 1) - dayOfWeek);
+  startDate.setHours(0, 0, 0, 0);
+
+  // Collect all dates in range into weeks (columns = weeks, rows = days Sun-Sat)
+  const weeks = [];
+  const monthLabels = [];
+  let currentWeek = [];
+  let prevMonth = -1;
+
+  const d = new Date(startDate);
+  for (let i = 0; i < WEEKS_TO_SHOW * 7; i++) {
+    const dow = d.getDay();
+    if (dow === 0 && currentWeek.length > 0) {
+      weeks.push(currentWeek);
+      currentWeek = [];
+    }
+    currentWeek.push(new Date(d));
+    d.setDate(d.getDate() + 1);
+  }
+  if (currentWeek.length > 0) {
+    weeks.push(currentWeek);
+  }
+
+  // Build month labels
+  weeks.forEach((week, wi) => {
+    // Use the Thursday of each week to determine the month display
+    const thuIdx = Math.min(4, week.length - 1);
+    const thuDate = week[thuIdx];
+    const month = thuDate.getMonth();
+    if (month !== prevMonth) {
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      monthLabels.push({ weekIndex: wi, label: monthNames[month] });
+      prevMonth = month;
+    }
+  });
+
+  // Weekday labels (Mon, Wed, Fri)
+  const weekdayLabels = ["", "Mon", "", "Wed", "", "Fri", ""];
+
+  let html = "";
+
+  // Month labels row (CSS Grid, columns match the weeks below)
+  html += '<div class="heatmap-months-row">';
+  monthLabels.forEach((ml) => {
+    html += `<span class="heatmap-month-label" style="grid-column:${ml.weekIndex + 2}">${ml.label}</span>`;
+  });
+  html += "</div>";
+
+  // Grid row: weekday labels + week columns
+  html += '<div class="heatmap-grid">';
+  html += '<div class="heatmap-weekday-labels">';
+  weekdayLabels.forEach((label) => {
+    html += `<span class="heatmap-weekday-label">${label}</span>`;
+  });
+  html += "</div>";
+
+  weeks.forEach((week) => {
+    html += '<div class="heatmap-week">';
+    for (let dayIdx = 0; dayIdx < 7; dayIdx++) {
+      if (dayIdx < week.length) {
+        const date = week[dayIdx];
+        const dateKey = formatDateKey(date);
+        const count = activityData[dateKey] || 0;
+        const level = getActivityLevel(count);
+        const isFuture = date > today;
+        const dateStr = date.toLocaleDateString("en-US", {
+          weekday: "short",
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        });
+        const problemLabel = count === 1 ? "problem" : "problems";
+        html += `<div
+          class="heatmap-day"
+          data-level="${isFuture ? -1 : level}"
+          data-date="${dateKey}"
+          data-count="${count}"
+          data-future="${isFuture}"
+          title="${dateStr}: ${count} ${problemLabel} solved"
+        ></div>`;
+      } else {
+        html += '<div class="heatmap-day" data-future="true"></div>';
+      }
+    }
+    html += "</div>";
+  });
+  html += "</div>";
+
+  container.innerHTML = html;
+
+  // Attach hover tooltip handlers
+  attachHeatmapTooltips();
+}
+
+function positionHeatmapTooltip(e) {
+  const tooltip = document.getElementById("heatmapTooltip");
+  if (!tooltip) return;
+
+  const padding = 8;
+  const offsetX = 14;
+  const offsetY = 12;
+
+  // Force a synchronous layout so width/height reflect current content
+  const rect = tooltip.getBoundingClientRect();
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  // Default: to the right of the cursor, above it
+  let left = e.clientX + offsetX;
+  let top = e.clientY - rect.height - offsetY;
+
+  // Flip to the left of the cursor if it would overflow the right edge
+  if (left + rect.width + padding > vw) {
+    left = e.clientX - rect.width - offsetX;
+  }
+
+  // Flip below the cursor if it would overflow the top edge
+  if (top < padding) {
+    top = e.clientY + offsetY;
+  }
+
+  // Clamp inside the viewport (left, right, bottom)
+  if (left < padding) left = padding;
+  if (left + rect.width + padding > vw) left = vw - rect.width - padding;
+  if (top + rect.height + padding > vh) top = vh - rect.height - padding;
+
+  tooltip.style.left = left + "px";
+  tooltip.style.top = top + "px";
+}
+
+function attachHeatmapTooltips() {
+  const tooltip = document.getElementById("heatmapTooltip");
+  if (!tooltip) return;
+
+  // Move tooltip to <body> so it escapes any ancestor stacking context
+  // (e.g. .dashboard-card's backdrop-filter) and can overlay sibling cards
+  if (tooltip.parentElement !== document.body) {
+    document.body.appendChild(tooltip);
+  }
+
+  const days = document.querySelectorAll(".heatmap-day:not([data-future='true'])");
+
+  days.forEach((day) => {
+    day.addEventListener("mouseenter", (e) => {
+      const date = day.dataset.date;
+      const count = parseInt(day.dataset.count) || 0;
+      const problemLabel = count === 1 ? "problem" : "problems";
+      const parsed = parseDateKey(date);
+      const dateStr = parsed.toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
+
+      tooltip.innerHTML = `<strong>${dateStr}</strong>${count} ${problemLabel} solved`;
+      tooltip.classList.add("visible");
+
+      // Position after content is set (getBoundingClientRect forces layout)
+      positionHeatmapTooltip(e);
+    });
+
+    day.addEventListener("mousemove", positionHeatmapTooltip);
+
+    day.addEventListener("mouseleave", () => {
+      tooltip.classList.remove("visible");
+    });
+  });
 }
 
 function updateStreak() {
