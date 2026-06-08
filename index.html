@@ -38,24 +38,86 @@
         <span class="logo-title">Algo Infinity Verse</span>
       </div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#topics">DSA Topics</a></li>
-        <li><a href="#quiz">Quizzes</a></li>
-        <li><a href="#practice">Practice</a></li>
-        <li><a href="#roadmap">Roadmap</a></li>
-        <li><a href="#interview">Interview Prep</a></li>
-        <li><a href="cheat-sheets.html">Cheat Sheets</a></li>
-        <li><a href="python-learning.html">Python</a></li>
-        <li><a href="community.html">Community</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="resume.html">Resume</a></li>
+        <li class="nav-item">
+          <a href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Learn</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a href="`#topics`" class="dropdown-item">DSA Topics</a>
+            <a href="`#practice`" class="dropdown-item">Practice Problems</a>
+            <a href="`#quiz`" class="dropdown-item">Quizzes</a>
+            <a href="`#roadmap`" class="dropdown-item">Learning Roadmap</a>
+            <a href="python-learning.html" class="dropdown-item">Learn Python</a>
+          </div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Interview</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a href="`#interview`" class="dropdown-item">Interview Prep</a>
+            <a href="cheat-sheets.html" class="dropdown-item">DSA Cheat Sheets</a>
+            <a href="system-design.html" class="dropdown-item">System Design</a>
+            <a href="behavioral-questions.html" class="dropdown-item">Behavioral Questions</a>
+          </div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Community</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu">
+            <a href="community.html" class="dropdown-item">Discussions</a>
+            <a href="`#dashboard`" class="dropdown-item">Leaderboard</a>
+            <a href="support-page/index.html" class="dropdown-item">Support</a>
+          </div>
+        </li>
+        <li class="nav-item has-dropdown nav-profile-dropdown">
+          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Profile</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-end">
+            <a href="`#dashboard`" class="dropdown-item">
+              <i class="fas fa-tachometer-alt"></i>
+              Dashboard
+            </a>
+            <a href="`#profile`" class="dropdown-item">
+              <i class="fas fa-user"></i>
+              My Profile
+            </a>
+            <a href="resume.html" class="dropdown-item">
+              <i class="fas fa-file-alt"></i>
+              Coding Resume
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="login.html" class="dropdown-item nav-auth-link" id="navLoginBtn">
+              <i class="fas fa-sign-in-alt"></i>
+              Sign In
+            </a>
+            <a href="signup.html" class="dropdown-item nav-auth-link" id="navSignupBtn">
+              <i class="fas fa-user-plus"></i>
+              Sign Up
+            </a>
+          </div>
+        </li>
+        <li class="nav-item nav-cta desktop-only">
+          <a href="#practice" class="btn btn-primary nav-cta-btn">
+            <i class="fas fa-rocket"></i>
+            Start Learning
+          </a>
+        </li>
       </ul>
       <div class="nav-buttons">
-        <button id="darkModeToggle" class="dark-mode-btn">
+        <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">
           <i class="fas fa-moon"></i>
         </button>
-        <button id="menuToggle" class="menu-toggle">
+        <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <i class="fas fa-bars"></i>
         </button>
       </div>

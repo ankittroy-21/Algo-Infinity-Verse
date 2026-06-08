@@ -1295,30 +1295,120 @@ function initNavbar() {
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
+  let overlay = document.querySelector(".nav-overlay");
+  if (!overlay && menuToggle && navLinks) {
+    overlay = document.createElement("div");
+    overlay.className = "nav-overlay";
+    document.body.appendChild(overlay);
+  }
+
+  const toggleMenu = (open) => {
+    const isOpen = open !== undefined ? open : !navLinks.classList.contains("active");
+    navLinks.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", isOpen);
+    if (overlay) overlay.classList.toggle("active", isOpen);
+    document.body.style.overflow = isOpen ? "hidden" : "";
     const icon = menuToggle.querySelector("i");
-    icon.classList.toggle("fa-bars");
-    icon.classList.toggle("fa-times");
+    if (icon) {
+      icon.classList.toggle("fa-bars", !isOpen);
+      icon.classList.toggle("fa-times", isOpen);
+    }
+  };
+
+  const closeMenu = () => {
+    if (!navLinks.classList.contains("active")) return;
+    toggleMenu(false);
+  };
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    if (overlay) overlay.addEventListener("click", closeMenu);
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+  }
+
+  // Dropdown functionality
+  const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+  const isMobile = () => window.matchMedia("(max-width: 1024px)").matches;
+
+  dropdownToggles.forEach((toggle) => {
+    const parent = toggle.closest(".has-dropdown");
+    const menu = parent?.querySelector(".dropdown-menu");
+    if (!parent || !menu) return;
+
+    let hoverTimeout;
+
+    const showMenu = () => {
+      clearTimeout(hoverTimeout);
+      parent.classList.add("open");
+      toggle.setAttribute("aria-expanded", "true");
+    };
+
+    const hideMenu = () => {
+      hoverTimeout = setTimeout(() => {
+        parent.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }, 250);
+    };
+
+    // Desktop: hover to open
+    parent.addEventListener("mouseenter", () => { if (!isMobile()) showMenu(); });
+    parent.addEventListener("mouseleave", () => { if (!isMobile()) hideMenu(); });
+    toggle.addEventListener("focus", () => { if (!isMobile()) showMenu(); });
+    menu.addEventListener("focusin", () => { if (!isMobile()) showMenu(); });
+    parent.addEventListener("focusout", () => { if (!isMobile()) hideMenu(); });
+
+    // Mobile: click to toggle
+    toggle.addEventListener("click", (e) => {
+      if (isMobile()) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = parent.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", isOpen);
+      }
+    });
+
+    // Close dropdown on item click (mobile)
+    menu.querySelectorAll(".dropdown-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        if (isMobile()) {
+          parent.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
   });
 
-  // Close menu on link click
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("active");
-      const icon = menuToggle.querySelector("i");
-      icon.classList.add("fa-bars");
-      icon.classList.remove("fa-times");
-    });
+  // Reset open state on resize
+  window.addEventListener("resize", () => {
+    if (!isMobile()) {
+      if (navLinks.classList.contains("active")) {
+        toggleMenu(false);
+      }
+      document.querySelectorAll(".has-dropdown.open").forEach((el) => {
+        el.classList.remove("open");
+      });
+      dropdownToggles.forEach((toggle) => {
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    }
   });
 
   // Scroll effect
   window.addEventListener("scroll", () => {
     const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 100) {
-      navbar.style.background = "rgba(10, 10, 26, 0.95)";
-    } else {
-      navbar.style.background = "rgba(10, 10, 26, 0.8)";
+    if (navbar) {
+      if (window.scrollY > 100) {
+        navbar.style.background = "rgba(10, 10, 26, 0.95)";
+      } else {
+        navbar.style.background = "rgba(10, 10, 26, 0.85)";
+      }
     }
   });
 }

@@ -263,7 +263,7 @@ function initProgressTracker() {
         updateUI();
       }
     },
-    { threshold: 0.6 }
+    { threshold: 0.15, rootMargin: "0px 0px -20% 0px" }
   );
 
   lessons.forEach((l) => observer.observe(l));
