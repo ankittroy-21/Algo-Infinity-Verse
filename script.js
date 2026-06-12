@@ -377,14 +377,14 @@ const quizQuestions = {
       id: "trees-4",
       question: "What property must a Binary Search Tree (BST) satisfy?",
       options: [
-        "All left descendants ≤ node < all right descendants",
+        "All left descendants <= node < all right descendants",
         "All levels fully filled",
         "No cycles",
         "All nodes have two children",
       ],
       correct: 0,
       explanation:
-        "BST invariant: left subtree values ≤ node value < right subtree values.",
+        "BST invariant: left subtree values <= node value < right subtree values.",
     },
     {
       id: "trees-5",
@@ -445,7 +445,7 @@ const quizQuestions = {
       question: "What does it mean for a tree to be 'balanced'?",
       options: [
         "All leaf nodes at same level",
-        "Height difference of subtrees ≤ 1 for every node",
+        "Height difference of subtrees <= 1 for every node",
         "No cycles",
         "All nodes have 0 or 2 children",
       ],
@@ -1028,7 +1028,7 @@ const dsaTopics = [
 <ul style="list-style:none; padding:0; margin-bottom:1rem;">
   <li style="padding:0.3rem 0;">• Start with brute force → add memoization → optimize</li>
   <li style="padding:0.3rem 0;">• Draw recursion tree to spot overlapping subproblems</li>
-  <li style="padding:0.3rem 0;">• Most 2D DP can reduce space from O(n²) to O(n)</li>
+  <li style="padding:0.3rem 0;">• Most 2D DP can reduce space from O(n^2) to O(n)</li>
   <li style="padding:0.3rem 0;">• If you see "minimum/maximum/count ways" → think DP!</li>
 </ul>
 
@@ -1058,7 +1058,7 @@ const dsaTopics = [
       <tr style="background:var(--dark-card);"><th style="padding:0.5rem 1rem; text-align:left; border:1px solid var(--glass-border);">Operation</th><th style="padding:0.5rem 1rem; text-align:left; border:1px solid var(--glass-border);">Time</th></tr>
       <tr><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Access element</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border); color:#22c55e;">O(1) ✅</td></tr>
       <tr style="background:var(--dark-card);"><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Linear traversal</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">O(M×N)</td></tr>
-      <tr><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Transpose / Rotate</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">O(N²)</td></tr>
+      <tr><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Transpose / Rotate</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">O(N^2)</td></tr>
       <tr style="background:var(--dark-card);"><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border);">Search (sorted matrix)</td><td style="padding:0.5rem 1rem; border:1px solid var(--glass-border); color:#22c55e;">O(M+N) ✅</td></tr>
     </table>
     <h4 style="color:var(--primary); margin:1rem 0 0.5rem;">🎯 Must-Know Interview Patterns</h4>
@@ -1086,8 +1086,8 @@ const practiceProblems = [
     description:
       "Given an array of integers nums and an integer target, return indices of the two numbers that add up to target. You may assume exactly one solution exists, and you may not use the same element twice. Return the answer in any order.",
     constraints: [
-      "2 ≤ nums.length ≤ 10⁴",
-      "-10⁹ ≤ nums[i] ≤ 10⁹",
+      "2 <= nums.length <= 10^4",
+      "-10^9 <= nums[i] <= 10^9",
       "Only one valid answer exists",
     ],
     followUp: "Can you solve it in O(n) time complexity?",
@@ -1102,7 +1102,7 @@ const practiceProblems = [
     description:
       "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. A string is valid if every open bracket is closed by the same type of bracket in the correct order.",
     constraints: [
-      "1 ≤ s.length ≤ 10⁴",
+      "1 <= s.length <= 10^4",
       "s consists of parentheses only '()[]{}'",
     ],
     followUp: "Can you solve it in O(n) time and O(n) space?",
@@ -1221,8 +1221,8 @@ const practiceProblems = [
     description:
       "Given an array prices where prices[i] is the price of a given stock on the iᵗʰ day, return the maximum profit you can achieve by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. If no profit is possible, return 0.",
     constraints: [
-      "1 ≤ prices.length ≤ 10⁵",
-      "0 ≤ prices[i] ≤ 10⁴",
+      "1 <= prices.length <= 10^5",
+      "0 <= prices[i] <= 10^4",
     ],
     followUp: "Can you solve it in O(n) time and O(1) space?",
   },
@@ -1236,8 +1236,8 @@ const practiceProblems = [
     description:
       "Given an integer array nums, move all 0s to the end of it while maintaining the relative order of the non-zero elements. You must do this in-place without making a copy of the array.",
     constraints: [
-      "1 ≤ nums.length ≤ 10⁴",
-      "−2³¹ ≤ nums[i] ≤ 2³¹ − 1",
+      "1 <= nums.length <= 10^4",
+      "-2^31 <= nums[i] <= 2^31 - 1",
     ],
     followUp: "Can you minimize the total number of operations?",
   },
@@ -1251,7 +1251,7 @@ const practiceProblems = [
     description:
       "Given two strings s and t, return true if t is an anagram of s, and false otherwise. An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.",
     constraints: [
-      "1 ≤ s.length, t.length ≤ 5 × 10⁴",
+      "1 <= s.length, t.length <= 5 × 10^4",
       "s and t consist of lowercase English letters only",
     ],
     followUp: "What if the inputs contain Unicode characters? How would you adapt your solution?",
@@ -1266,8 +1266,8 @@ const practiceProblems = [
     description:
       "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one. You must implement a solution with O(n) time complexity and O(1) space complexity.",
     constraints: [
-      "1 ≤ nums.length ≤ 3 × 10⁴",
-      "-3 × 10⁴ ≤ nums[i] ≤ 3 × 10⁴",
+      "1 <= nums.length <= 3 × 10^4",
+      "-3 × 10^4 <= nums[i] <= 3 × 10^4",
       "Each element appears exactly twice except for one element which appears exactly once",
     ],
     followUp: "Can you solve it without using extra memory, using XOR bit manipulation?",
@@ -1282,8 +1282,8 @@ const practiceProblems = [
     description:
       "Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique, and the result can be returned in any order.",
     constraints: [
-      "1 ≤ nums1.length, nums2.length ≤ 1000",
-      "0 ≤ nums1[i], nums2[i] ≤ 1000",
+      "1 <= nums1.length, nums2.length <= 1000",
+      "0 <= nums1[i], nums2[i] <= 1000",
       "Result must contain only unique elements",
     ],
     followUp: "What if the arrays are already sorted? What if one array is much larger than the other?",
@@ -1298,8 +1298,8 @@ const practiceProblems = [
     description:
       "Given an array of integers nums, return true if it is sorted in non-decreasing order, and false otherwise.",
     constraints: [
-      "1 ≤ nums.length ≤ 10⁴",
-      "−10⁹ ≤ nums[i] ≤ 10⁹",
+      "1 <= nums.length <= 10^4",
+      "-10^9 <= nums[i] <= 10^9",
     ],
     followUp: "Can you solve it in O(n) time complexity and O(1) space complexity?",
   },
@@ -1313,7 +1313,7 @@ const practiceProblems = [
     description:
       "Given n, return the nth Fibonacci number.",
     constraints: [
-      "0 ≤ n ≤ 30",
+      "0 <= n <= 30",
     ],
 followUp: "Can you solve it using recursion, memoization, and bottom-up tabulation?",
   },
@@ -1326,9 +1326,9 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "arrays",
     description: "Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
     constraints: [
-      "1 ≤ intervals.length ≤ 10⁴",
+      "1 <= intervals.length <= 10^4",
       "intervals[i].length == 2",
-      "0 ≤ starti ≤ endi ≤ 10⁴",
+      "0 <= starti <= endi <= 10^4",
     ],
     followUp: "Can you solve it in O(n log n) time?",
   },
@@ -1341,8 +1341,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "arrays",
     description: "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. You must solve it without using the division operation and in O(n) time.",
     constraints: [
-      "2 ≤ nums.length ≤ 10⁵",
-      "-30 ≤ nums[i] ≤ 30",
+      "2 <= nums.length <= 10^5",
+      "-30 <= nums[i] <= 30",
       "The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer",
     ],
     followUp: "Can you solve it in O(1) extra space (excluding output array)?",
@@ -1358,8 +1358,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     constraints: [
       "m == matrix.length",
       "n == matrix[0].length",
-      "1 ≤ m, n ≤ 10",
-      "-100 ≤ matrix[i][j] ≤ 100",
+      "1 <= m, n <= 10",
+      "-100 <= matrix[i][j] <= 100",
     ],
     followUp: "Can you solve it without using extra space?",
   },
@@ -1372,7 +1372,7 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "strings",
     description: "Given a string s, find the length of the longest substring without repeating characters.",
     constraints: [
-      "0 ≤ s.length ≤ 5 × 10⁴",
+      "0 <= s.length <= 5 × 10^4",
       "s consists of English letters, digits, symbols and spaces",
     ],
     followUp: "Can you solve it in O(n) using sliding window?",
@@ -1386,8 +1386,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "strings",
     description: "Given an array of strings strs, group the anagrams together. You can return the answer in any order.",
     constraints: [
-      "1 ≤ strs.length ≤ 10⁴",
-      "0 ≤ strs[i].length ≤ 100",
+      "1 <= strs.length <= 10^4",
+      "0 <= strs[i].length <= 100",
       "strs[i] consists of lowercase English letters",
     ],
     followUp: "Can you solve it without sorting each string?",
@@ -1401,8 +1401,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "linkedlist",
     description: "Given head, the head of a linked list, determine if the linked list has a cycle in it. Return true if there is a cycle, otherwise return false.",
     constraints: [
-      "The number of nodes is in range [0, 10⁴]",
-      "-10⁵ ≤ Node.val ≤ 10⁵",
+      "The number of nodes is in range [0, 10^4]",
+      "-10^5 <= Node.val <= 10^5",
     ],
     followUp: "Can you solve it using Floyd's cycle detection algorithm in O(1) space?",
   },
@@ -1416,9 +1416,9 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     description: "Given the head of a linked list, remove the nth node from the end of the list and return its head.",
     constraints: [
       "The number of nodes in the list is sz",
-      "1 ≤ sz ≤ 30",
-      "0 ≤ Node.val ≤ 100",
-      "1 ≤ n ≤ sz",
+      "1 <= sz <= 30",
+      "0 <= Node.val <= 100",
+      "1 <= n <= sz",
     ],
     followUp: "Can you solve it in one pass using two pointers?",
   },
@@ -1433,7 +1433,7 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     constraints: [
       "The number of nodes of listA is in the m",
       "The number of nodes of listB is in the n",
-      "1 ≤ m, n ≤ 3 × 10⁴",
+      "1 <= m, n <= 3 × 10^4",
     ],
     followUp: "Can you solve it in O(m+n) time and O(1) space?",
   },
@@ -1446,8 +1446,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "trees",
     description: "Given the root of a binary tree, return its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
     constraints: [
-      "The number of nodes is in range [0, 10⁴]",
-      "-100 ≤ Node.val ≤ 100",
+      "The number of nodes is in range [0, 10^4]",
+      "-100 <= Node.val <= 100",
     ],
     followUp: "Can you solve it both recursively and iteratively using BFS?",
   },
@@ -1460,8 +1460,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "trees",
     description: "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST. The LCA is defined as the lowest node that has both p and q as descendants.",
     constraints: [
-      "The number of nodes is in range [2, 10⁵]",
-      "-10⁹ ≤ Node.val ≤ 10⁹",
+      "The number of nodes is in range [2, 10^5]",
+      "-10^9 <= Node.val <= 10^9",
       "All Node.val are unique",
     ],
     followUp: "Can you solve it for a general binary tree (not just BST)?",
@@ -1476,8 +1476,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     description: "Given the root of a binary tree and an integer targetSum, return true if the tree has a root-to-leaf path such that adding up all the values along the path equals targetSum.",
     constraints: [
       "The number of nodes is in range [0, 5000]",
-      "-1000 ≤ Node.val ≤ 1000",
-      "-1000 ≤ targetSum ≤ 1000",
+      "-1000 <= Node.val <= 1000",
+      "-1000 <= targetSum <= 1000",
     ],
     followUp: "Can you find all paths that sum to target? (Path Sum II)",
   },
@@ -1490,8 +1490,8 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "graphs",
     description: "You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target. Return the minimum time it takes for all n nodes to receive the signal. If it is impossible, return -1.",
     constraints: [
-      "1 ≤ k ≤ n ≤ 100",
-      "1 ≤ times.length ≤ 6000",
+      "1 <= k <= n <= 100",
+      "1 <= times.length <= 6000",
       "times[i].length == 3",
     ],
     followUp: "Can you solve it using Dijkstra's algorithm?",
@@ -1505,7 +1505,7 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "dp",
     description: "You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?",
     constraints: [
-      "1 ≤ n ≤ 45",
+      "1 <= n <= 45",
     ],
     followUp: "Can you generalize to k steps at a time?",
   },
@@ -1518,9 +1518,9 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "dp",
     description: "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount cannot be made up by any combination of the coins, return -1.",
     constraints: [
-      "1 ≤ coins.length ≤ 12",
-      "1 ≤ coins[i] ≤ 2³¹ - 1",
-      "0 ≤ amount ≤ 10⁴",
+      "1 <= coins.length <= 12",
+      "1 <= coins[i] <= 2^31 - 1",
+      "0 <= amount <= 10^4",
     ],
     followUp: "Can you solve it using both top-down and bottom-up DP?",
   },
@@ -1533,7 +1533,7 @@ followUp: "Can you solve it using recursion, memoization, and bottom-up tabulati
     category: "dp",
     description: "Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2. You have three operations: Insert, Delete, Replace a character.",
     constraints: [
-      "0 ≤ word1.length, word2.length ≤ 500",
+      "0 <= word1.length, word2.length <= 500",
       "word1 and word2 consist of lowercase English letters",
     ],
     followUp: "Can you optimize the space complexity from O(m*n) to O(min(m,n))?",
@@ -1596,14 +1596,14 @@ const dailyChallenges = [
 
 const chatbotResponses = {
   "time complexity":
-    "Time complexity measures how an algorithm's runtime grows with input size. Common complexities: O(1) constant, O(log n) logarithmic, O(n) linear, O(n log n) linearithmic, O(n²) quadratic, O(2^n) exponential.",
+    "Time complexity measures how an algorithm's runtime grows with input size. Common complexities: O(1) constant, O(log n) logarithmic, O(n) linear, O(n log n) linearithmic, O(n^2) quadratic, O(2^n) exponential.",
   "space complexity":
     "Space complexity measures memory usage relative to input size. Aim for O(1) or O(n) space. In-place algorithms modify input directly.",
   arrays:
     "Arrays provide O(1) random access but fixed size. Use when you need fast lookups and index-based access. Key operations: insert O(n), delete O(n), search O(n) unsorted / O(log n) binary search on sorted arrays.",
   "linked list":
     "Linked lists offer O(1) insertion/deletion at any position but O(n) access time. Use when frequent insertions/deletions needed. Types: singly (one pointer), doubly (two pointers), circular (last points to first).",
-  tree: "Trees are hierarchical. Binary trees: each node has ≤2 children. BST: left < root < right. Balanced (AVL, Red-Black) ensure O(log n) operations. Traversals: inorder (left-root-right), preorder (root-left-right), postorder (left-right-root).",
+  tree: "Trees are hierarchical. Binary trees: each node has <=2 children. BST: left < root < right. Balanced (AVL, Red-Black) ensure O(log n) operations. Traversals: inorder (left-root-right), preorder (root-left-right), postorder (left-right-root).",
   graph:
     "Graphs represent networks. Directed vs undirected, weighted vs unweighted, cyclic vs acyclic. Representations: adjacency list (space-efficient) vs adjacency matrix (O(1) edge lookup). Traversals: BFS (shortest path on unweighted graphs), DFS (cycle detection, topological sort).",
   "dynamic programming":
@@ -1611,13 +1611,13 @@ const chatbotResponses = {
   greedy:
     "Greedy algorithms make locally optimal choices hoping for global optimum. Works when greedy choice property holds. Examples: Dijkstra's shortest path, Huffman coding, activity selection.",
   sorting:
-    "Common sorting algorithms: Bubble O(n²), Selection O(n²), Insertion O(n²) (good for small/nearly sorted), Merge O(n log n) stable, Quick O(n log n) average, Heap O(n log n) in-place, Counting O(n+k) for bounded range, Radix O(d(n+b)).",
+    "Common sorting algorithms: Bubble O(n^2), Selection O(n^2), Insertion O(n^2) (good for small/nearly sorted), Merge O(n log n) stable, Quick O(n log n) average, Heap O(n log n) in-place, Counting O(n+k) for bounded range, Radix O(d(n+b)).",
   "binary search":
-    "Binary search on sorted arrays: repeatedly divide search interval in half. Time O(log n). Template: low=0, high=n-1; while low≤high: mid=(low+high)/2; if target=arr[mid] return; else adjust bounds.",
+    "Binary search on sorted arrays: repeatedly divide search interval in half. Time O(log n). Template: low=0, high=n-1; while low<=high: mid=(low+high)/2; if target=arr[mid] return; else adjust bounds.",
   recursion:
     "Recursion solves problems by breaking into smaller subproblems. Base case stops recursion. Recursive case calls function with smaller input. Use for tree traversals, backtracking, divide & conquer. Watch stack overflow for deep recursion.",
   "big o":
-    "Big O describes upper bound of growth rate. Best, average, worst cases differ. Common: O(1) < O(log n) < O(n) < O(n log n) < O(n²) < O(2^n) < O(n!). Space complexity also matters.",
+    "Big O describes upper bound of growth rate. Best, average, worst cases differ. Common: O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n) < O(n!). Space complexity also matters.",
   bfs: "Breadth-First Search explores all neighbors before moving deeper. Use queue. Applications: shortest path (unweighted), level-order traversal, web crawling, social networks (degrees of separation).",
   dfs: "Depth-First Search goes deep before backtracking. Use stack (explicit or recursion). Applications: cycle detection, topological sort, connected components, maze solving. Three tree traversals: inorder, preorder, postorder.",
   "system design":
@@ -2959,7 +2959,7 @@ const roadmapSteps = [
         <li><strong>O(log N) - Logarithmic:</strong> The problem size is divided in half at each step (e.g., Binary Search).</li>
         <li><strong>O(N) - Linear:</strong> Time increases proportionally with input size (e.g., traversing an array or linked list, linear search).</li>
         <li><strong>O(N log N) - Linearithmic:</strong> Efficient sorting algorithms (e.g., Merge Sort, Quick Sort).</li>
-        <li><strong>O(N²) - Quadratic:</strong> Nested loops over the input (e.g., Bubble Sort, Insertion Sort).</li>
+        <li><strong>O(N^2) - Quadratic:</strong> Nested loops over the input (e.g., Bubble Sort, Insertion Sort).</li>
       </ul>
       <p><strong>Space Complexity:</strong> The amount of memory an algorithm needs relative to the input size. Creating a new array of size N requires O(N) space, while modifying a structure in-place requires O(1) space.</p>
     `,
@@ -5078,7 +5078,7 @@ function generateExamples(problem) {
     7: `<strong>Example 1:</strong><br>Input: nums = [10,9,2,5,3,7,101,18]<br>Output: 4<br>Explanation: [2,3,7,101] is the longest increasing subsequence<br><br>
         <strong>Example 2:</strong><br>Input: nums = [0,1,0,3,2,3]<br>Output: 4<br><br>
         <strong>Edge Cases:</strong><br>• All elements same → LIS = 1<br>• Already sorted → LIS = n<br><br>
-        <strong>Follow-up:</strong> Can you improve from O(n²) DP to O(n log n) using Binary Search?`,
+        <strong>Follow-up:</strong> Can you improve from O(n^2) DP to O(n log n) using Binary Search?`,
 
     8: `<strong>Example 1:</strong><br>Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]<br>Output: 5<br>Explanation: hit→hot→dot→dog→cog<br><br>
         <strong>Example 2:</strong><br>Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"]<br>Output: 0<br>Explanation: endWord not in wordList<br><br>
@@ -5149,7 +5149,7 @@ function generateExamples(problem) {
         <strong>Edge Cases:</strong><br>• No common elements → return []<br>• All elements in common → return unique elements of either array<br>• One array is empty → return []<br>• Both arrays identical → return unique elements of the array<br><br>
         <strong>Key Insight (Hash Set):</strong><br>• Convert nums1 into a Set for O(1) lookups<br>• Iterate nums2 and check membership in the Set<br>• Store matches in a result Set to avoid duplicates<br><br>
         <strong>Follow-up:</strong> Can you solve it in O(n + m) time using two Hash Sets? What changes if both arrays are pre-sorted?`,
-    21: `<strong>Example 1:</strong><br>Input: nums = [1,2,3,4]<br>Output: true<br>Explanation: The array is sorted in non-decreasing order: 1 ≤ 2 ≤ 3 ≤ 4.<br><br>
+    21: `<strong>Example 1:</strong><br>Input: nums = [1,2,3,4]<br>Output: true<br>Explanation: The array is sorted in non-decreasing order: 1 <= 2 <= 3 <= 4.<br><br>
         <strong>Example 2:</strong><br>Input: nums = [5,4,3,2,1]<br>Output: false<br>Explanation: The array is not sorted.<br><br>
         <strong>Example 3:</strong><br>Input: nums = [1,1,2,2,3]<br>Output: true<br>Explanation: The array is sorted (duplicates are allowed and still sorted).<br><br>
         <strong>Edge Cases:</strong><br>• Empty array or single element array → true by default<br>• Negative values<br><br>
@@ -5871,6 +5871,8 @@ document.addEventListener("click", (e) => {
 });
 
 // Footer question handlers for quiz editor
+// NOTE: keep this block contiguous to avoid accidental stray tokens
+// (fix/clarity for contributors/CI)
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("footer-question")) {
     const question = e.target.getAttribute("data-question");
