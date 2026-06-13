@@ -4754,6 +4754,65 @@ body.light-mode {
   --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
 }
 
+/* ADD THIS BELOW — fixes navbar hardcoded backgrounds */
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+}
+
+body.light-mode .nav-links {
+  background: #ffffff;
+}
+
+body.light-mode .logo-title {
+  color: #1a202c;
+}
+
+body.light-mode .nav-link,
+body.light-mode .dropdown-toggle {
+  color: #4a5568;
+}
+
+body.light-mode .nav-link:hover,
+body.light-mode .dropdown-toggle:hover {
+  color: #1a202c;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .dropdown-menu {
+  background: #f8fafc;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .dropdown-item {
+  color: #4a5568;
+}
+
+body.light-mode .dropdown-item:hover {
+  background: var(--primary);
+  color: white;
+}
+
+body.light-mode .dark-mode-btn,
+body.light-mode .menu-toggle {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1a202c;
+}
+
+body.light-mode .nav-auth-link {
+  color: #4a5568;
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .nav-auth-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
 /* ===== SCROLLBAR STYLING ===== */
 ::-webkit-scrollbar {
   width: 10px;
@@ -5457,7 +5516,7 @@ body.light-mode {
 .quiz-card,
 .start-quiz-btn {
     position: relative;
-    z-index: 9999;
+    z-index: 1;
     pointer-events: auto;
 }
 .quiz-card * {
