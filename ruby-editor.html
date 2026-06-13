@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scala Editor – Live Code Editor | Algo Infinity Verse</title>
+    <meta name="description" content="Free in-browser Ruby code editor with live execution via Piston API. Write, run, and test Ruby scripts with real-time output, preloaded examples, and localStorage auto-save." />
+    <title>Ruby Editor – Live Code Editor | Algo Infinity Verse</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="scala-editor.css" />
+    <link rel="stylesheet" href="ruby-editor.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
@@ -38,12 +39,11 @@
             <a href="index.html#practice" class="dropdown-item" role="menuitem">Practice Problems</a>
             <a href="python-learning.html" class="dropdown-item" role="menuitem">Learn Python</a>
             <a href="javascript-learning.html" class="dropdown-item" role="menuitem">Learn JavaScript</a>
-            <a href="sql-learning.html" class="dropdown-item" role="menuitem">Learn SQL</a>
-            <a href="sql-editor.html" class="dropdown-item" role="menuitem">SQL Editor</a>
+            <a href="java-learning.html" class="dropdown-item" role="menuitem">Learn Java</a>
             <a href="react-playground.html" class="dropdown-item" role="menuitem">React Playground</a>
             <a href="php-editor.html" class="dropdown-item" role="menuitem">PHP Editor</a>
-            <a href="scala-editor.html" class="dropdown-item active" role="menuitem">Scala Editor</a>
-            <a href="cpp-editor.html" class="dropdown-item" role="menuitem">C++ Editor</a>
+            <a href="scala-editor.html" class="dropdown-item" role="menuitem">Scala Editor</a>
+            <a href="ruby-editor.html" class="dropdown-item active" role="menuitem">Ruby Editor</a>
             <a href="sorting-visualizer.html" class="dropdown-item" role="menuitem">Sorting Visualizer</a>
             <a href="graph-visualizer.html" class="dropdown-item" role="menuitem">Graph Visualizer</a>
           </div>
@@ -90,82 +90,87 @@
       </div>
     </nav>
 
-    <section class="hero se-hero">
+    <section class="hero re-hero">
       <div class="hero-background">
         <div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
       </div>
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="title-line">Write Scala.</span>
-          <span class="main-title" style="background: linear-gradient(135deg, #dc322f 0%, #e8612c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Run It Instantly.</span>
-          <span class="subtitle">In-Browser Scala Editor</span>
+          <span class="title-line">Write Ruby.</span>
+          <span class="main-title" style="background: linear-gradient(135deg, #cc342d 0%, #e05252 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Run It For Real.</span>
+          <span class="subtitle">Powered by Piston API</span>
         </h1>
-        <p class="se-hero-desc">Write Scala code, see simulated output instantly. Supports variables, functions, collections, classes, and pattern matching.</p>
+        <p class="re-hero-desc">Write Ruby scripts and execute them via a real Ruby interpreter. No installs. No backend setup. Powered by the Piston sandboxed execution API.</p>
         <div class="hero-buttons">
-          <a href="#editor" class="btn btn-primary" style="background: linear-gradient(135deg, #dc322f 0%, #e8612c 100%); border: none; color: #fff; font-weight: 600;">
+          <a href="#editor" class="btn btn-primary" style="background: linear-gradient(135deg, #cc342d 0%, #e05252 100%); border: none; color: #fff; font-weight: 600;">
             <i class="fas fa-play"></i> Open Editor
           </a>
-          <a href="java-learning.html" class="btn btn-secondary"><i class="fas fa-book-open"></i> Learn JVM Languages</a>
+          <a href="javascript-learning.html" class="btn btn-secondary"><i class="fas fa-book-open"></i> Learn Scripting</a>
         </div>
-        <div class="se-note">
-          <i class="fas fa-info-circle"></i>
-          Execution is simulated in the browser. For real Scala, use <code>scalac</code> / sbt locally or Scastie online.
+        <div class="re-note">
+          <i class="fas fa-bolt"></i>
+          Real Ruby execution via <strong>Piston API</strong> — sandboxed, safe, no API key required.
         </div>
       </div>
     </section>
 
-    <section id="editor" class="section se-section">
-      <div class="se-container">
-        <div class="se-toolbar">
-          <div class="se-toolbar-left">
-            <span class="se-label"><i class="fas fa-s se-scala-icon"></i> Scala Editor</span>
-            <select id="seExampleSelect" class="se-select" aria-label="Load example">
+    <section id="editor" class="section re-section">
+      <div class="re-container">
+        <div class="re-toolbar">
+          <div class="re-toolbar-left">
+            <span class="re-label"><i class="fas fa-gem re-ruby-icon"></i> Ruby Editor</span>
+            <select id="reExampleSelect" class="re-select" aria-label="Load example">
               <option value="hello">Hello World</option>
               <option value="variables">Variables & Types</option>
-              <option value="collections">Collections & Loops</option>
-              <option value="function">Functions & Lambdas</option>
+              <option value="loops">Loops & Iterators</option>
+              <option value="methods">Methods</option>
               <option value="class">Classes & OOP</option>
-              <option value="pattern">Pattern Matching</option>
+              <option value="strings">String Manipulation</option>
             </select>
           </div>
-          <div class="se-toolbar-right">
-            <button id="seRunBtn" class="btn btn-primary se-run-btn"><i class="fas fa-play"></i> Run</button>
-            <button id="seResetBtn" class="se-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
-            <button id="seCopyBtn" class="se-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
-            <button id="seSaveBtn" class="se-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
+          <div class="re-toolbar-right">
+            <div class="re-auto-toggle">
+              <span class="re-toggle-label">Auto-run</span>
+              <input type="checkbox" id="reAutoRun" class="re-toggle-input" />
+              <label for="reAutoRun" class="re-toggle-switch"></label>
+            </div>
+            <button id="reRunBtn" class="btn btn-primary re-run-btn"><i class="fas fa-play"></i> Run</button>
+            <button id="reResetBtn" class="re-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
+            <button id="reCopyBtn" class="re-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
+            <button id="reSaveBtn" class="re-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
           </div>
         </div>
 
-        <div class="se-split">
-          <div class="se-editor-pane">
-            <div class="se-pane-header">
+        <div class="re-split">
+          <div class="re-editor-pane">
+            <div class="re-pane-header">
               <span><i class="fas fa-code"></i> Editor</span>
-              <span class="se-lang-badge">Scala</span>
+              <span class="re-lang-badge">Ruby</span>
             </div>
-            <div class="se-editor-wrap">
-              <div class="se-line-numbers" id="seLineNumbers">1</div>
-              <textarea id="seEditor" class="se-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Scala code editor"></textarea>
+            <div class="re-editor-wrap">
+              <div class="re-line-numbers" id="reLineNumbers">1</div>
+              <textarea id="reEditor" class="re-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Ruby code editor"></textarea>
             </div>
           </div>
 
-          <div class="se-output-pane">
-            <div class="se-pane-header">
+          <div class="re-output-pane">
+            <div class="re-pane-header">
               <span><i class="fas fa-terminal"></i> Output</span>
-              <span id="seStatusBadge" class="se-status-badge se-status-ready">Ready</span>
+              <span id="reStatusBadge" class="re-status-badge re-status-ready">Ready</span>
             </div>
-            <div class="se-output-body" id="seOutputBody">
-              <span class="se-output-placeholder">Run your code to see output here...</span>
+            <div class="re-output-body" id="reOutputBody">
+              <span class="re-output-placeholder">Run your code to see output here...</span>
             </div>
           </div>
         </div>
 
-        <div class="se-console">
-          <div class="se-console-header">
-            <span><i class="fas fa-exclamation-triangle"></i> Errors / Warnings</span>
-            <button class="se-console-clear" id="seConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
+        <div class="re-console">
+          <div class="re-console-header">
+            <span><i class="fas fa-exclamation-triangle"></i> Errors / stderr</span>
+            <button class="re-console-clear" id="reConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
           </div>
-          <div class="se-console-body" id="seConsoleBody">
-            <span class="se-console-placeholder">No errors detected.</span>
+          <div class="re-console-body" id="reConsoleBody">
+            <span class="re-console-placeholder">No errors detected.</span>
           </div>
         </div>
       </div>
@@ -186,10 +191,9 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="index.html#topics">DSA Topics</a></li>
-              <li><a href="java-learning.html">Learn Java</a></li>
-              <li><a href="scala-editor.html">Scala Editor</a>
-            <a href="cpp-editor.html" class="dropdown-item" role="menuitem">C++ Editor</a></li>
+              <li><a href="ruby-editor.html">Ruby Editor</a></li>
               <li><a href="php-editor.html">PHP Editor</a></li>
+              <li><a href="scala-editor.html">Scala Editor</a></li>
               <li><a href="react-playground.html">React Playground</a></li>
             </ul>
           </div>
@@ -202,6 +206,6 @@
 
     <script src="./auth.js"></script>
     <script src="./script.js"></script>
-    <script src="./scala-editor.js"></script>
+    <script src="./ruby-editor.js"></script>
   </body>
 </html>

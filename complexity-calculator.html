@@ -8,10 +8,10 @@
     </title>
     <meta
       name="description"
-      content="Visualize sorting algorithms like Bubble, Selection, and Insertion Sort step-by-step with adjustable array sizes and animation speeds."
+      content="Compare algorithms, visualize growth rates, and plot Big-O graphs dynamically."
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="sorting-visualizer.css" />
+    <link rel="stylesheet" href="complexity-calculator.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Poppins:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500;600&amp;display=swap"
       rel="stylesheet"
@@ -212,154 +212,79 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero visualizer-hero">
-      <div class="hero-background">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-        <div class="stars3"></div>
+        <!-- Hero Section -->
+    <section id="home" class="hero complexity-hero">
+      <div class="complexity-hero-background">
+        <div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
       </div>
-      <div class="hero-content">
+      <div class="complexity-hero-content">
         <h1 class="hero-title">
-          <span class="title-line">Interactive</span>
-          <span class="main-title gradient-text">Sorting Visualizer</span>
-          <span class="subtitle"
-            >Animate and study sorting algorithms step-by-step</span
-          >
+          <span class="title-line">Big-O Notation</span>
+          <span class="main-title gradient-text">Complexity Calculator</span>
+          <span class="subtitle">Visualize Growth Rates & Compare Algorithms</span>
         </h1>
-        <div class="typing-container">
-          <span class="typing-text_visualizer" id="typingTextVisualizer"></span>
-          <span class="typing-cursor">|</span>
-        </div>
+        <p class="complexity-desc">Dynamically plot O(1), O(log n), O(n), and more to understand how different algorithms scale as input size increases.</p>
       </div>
     </section>
 
-    <!-- Main Visualizer Dashboard -->
-    <section class="section" id="visualizer-section">
-      <div class="container">
-        <div class="visualizer-container">
-          <!-- LEFT / MAIN CONTENT: Visualizer canvas -->
-          <div class="visualizer-main-panel">
-            <!-- Visualizer Card (Bars chart) -->
-            <div class="visualizer-card" style="position: relative">
-              <div class="canvas-wrapper" id="canvasWrapper">
-                <!-- Bars will be inserted dynamically by JS -->
-                <div class="canvas-placeholder-text" id="canvasPlaceholder">
-                  Initializing Sorter Canvas...
-                </div>
+        <!-- Main Calculator Dashboard -->
+    <section class="section" id="calculator-section">
+      <div class="cc-dashboard">
+        <!-- LEFT: Graph Canvas -->
+        <div class="cc-graph-container">
+          <div class="cc-graph-header">
+            <div class="cc-graph-title"><i class="fas fa-chart-area"></i> Big-O Growth Visualization</div>
+          </div>
+          <div class="cc-canvas-wrapper">
+            <canvas id="complexityChart"></canvas>
+          </div>
+        </div>
+
+        <!-- RIGHT: Control Panel -->
+        <div class="cc-controls">
+          <div class="cc-control-section">
+            <div class="cc-control-title"><i class="fas fa-sliders-h"></i> Parameters</div>
+            <div class="cc-slider-wrap">
+              <div class="cc-slider-header">
+                <span>Input Size (N)</span>
+                <span class="cc-val-badge" id="nValDisplay">50</span>
               </div>
+              <input type="range" id="nSlider" min="5" max="200" value="50" />
             </div>
           </div>
 
-          <!-- RIGHT / SIDEBAR CONTENT: Controls, Complexity -->
-          <div class="visualizer-sidebar">
-            <!-- Controls Card -->
-            <div class="visualizer-card" style="position: relative">
-              <h3 style="margin-bottom: 1rem">
-                <i
-                  class="fas fa-sliders-h"
-                  style="color: var(--accent); margin-right: 0.5rem"
-                ></i
-                >Controls
-              </h3>
-
-              <!-- Algorithm Select -->
-              <div class="control-group">
-                <label for="algoSelect">Algorithm</label>
-                <select id="algoSelect" class="control-input">
-                  <option value="bubble">Bubble Sort</option>
-                  <option value="selection">Selection Sort</option>
-                  <option value="insertion">Insertion Sort</option>
-                </select>
-              </div>
-
-              <!-- Array Size -->
-              <div class="control-group">
-                <label for="arraySizeRange"
-                  >Array Size
-                  <span class="val-display" id="sizeDisplay">30</span></label
-                >
-                <input
-                  type="range"
-                  id="arraySizeRange"
-                  min="5"
-                  max="80"
-                  value="30"
-                  class="slider-custom"
-                />
-              </div>
-
-              <!-- Speed/Delay -->
-              <div class="control-group">
-                <label for="speedRange"
-                  >Step Delay
-                  <span class="val-display" id="speedDisplay">50ms</span></label
-                >
-                <input
-                  type="range"
-                  id="speedRange"
-                  min="5"
-                  max="1000"
-                  value="50"
-                  class="slider-custom"
-                />
-              </div>
-
-              <!-- Control Buttons -->
-              <button
-                id="newArrayBtn"
-                class="btn btn-secondary"
-                style="
-                  width: 100%;
-                  margin-top: 0.5rem;
-                  justify-content: center;
-                  display: flex;
-                  align-items: center;
-                  gap: 0.5rem;
-                "
-              >
-                <i class="fas fa-sync-alt"></i> Generate New Array
-              </button>
-
-              <div class="btn-control-row">
-                <button id="startBtn" class="btn btn-primary btn-control">
-                  <i class="fas fa-play"></i> Play
-                </button>
-                <button
-                  id="pauseBtn"
-                  class="btn btn-secondary btn-control"
-                  disabled
-                >
-                  <i class="fas fa-pause"></i> Pause
-                </button>
-                <button id="resetBtn" class="btn btn-secondary btn-control">
-                  <i class="fas fa-undo"></i> Reset
-                </button>
-              </div>
+          <div class="cc-control-section">
+            <div class="cc-control-title"><i class="fas fa-layer-group"></i> Complexities</div>
+            <div class="cc-toggles">
+              <label class="cc-toggle-label t-o1"><input type="checkbox" id="chk_o1" checked><div class="cc-toggle-box"></div> O(1) Constant</label>
+              <label class="cc-toggle-label t-ologn"><input type="checkbox" id="chk_ologn" checked><div class="cc-toggle-box"></div> O(log N) Logarithmic</label>
+              <label class="cc-toggle-label t-on"><input type="checkbox" id="chk_on" checked><div class="cc-toggle-box"></div> O(N) Linear</label>
+              <label class="cc-toggle-label t-onlogn"><input type="checkbox" id="chk_onlogn" checked><div class="cc-toggle-box"></div> O(N log N) Linearithmic</label>
+              <label class="cc-toggle-label t-on2"><input type="checkbox" id="chk_on2" checked><div class="cc-toggle-box"></div> O(N²) Quadratic</label>
+              <label class="cc-toggle-label t-o2n"><input type="checkbox" id="chk_o2n"><div class="cc-toggle-box"></div> O(2^N) Exponential</label>
+              <label class="cc-toggle-label t-onfact"><input type="checkbox" id="chk_onfact"><div class="cc-toggle-box"></div> O(N!) Factorial</label>
             </div>
+          </div>
 
-            <!-- Algorithm Complexity Panel -->
-            <div class="visualizer-card" style="position: relative">
-              <h3 id="algoInfoTitle">Bubble Sort</h3>
-
-              <div class="complexity-grid">
-                <div class="complexity-card-mini">
-                  <h5>Best Time</h5>
-                  <p id="bestTimeComplexity">O(n)</p>
-                </div>
-                <div class="complexity-card-mini">
-                  <h5>Average Time</h5>
-                  <p id="avgTimeComplexity">O(n²)</p>
-                </div>
-                <div class="complexity-card-mini">
-                  <h5>Worst Time</h5>
-                  <p id="worstTimeComplexity">O(n²)</p>
-                </div>
-                <div class="complexity-card-mini">
-                  <h5>Space Complexity</h5>
-                  <p id="spaceComplexity">O(1)</p>
-                </div>
-              </div>
+          <div class="cc-control-section cc-compare">
+            <div class="cc-control-title"><i class="fas fa-balance-scale"></i> Compare Algorithms</div>
+            <select id="algoA" class="cc-select">
+              <option value="binary_search">Binary Search</option>
+              <option value="linear_search">Linear Search</option>
+              <option value="bubble_sort">Bubble Sort</option>
+              <option value="merge_sort">Merge Sort</option>
+              <option value="fib_recursive">Fibonacci (Recursive)</option>
+            </select>
+            <div class="cc-compare-vs">VS</div>
+            <select id="algoB" class="cc-select">
+              <option value="bubble_sort">Bubble Sort</option>
+              <option value="binary_search">Binary Search</option>
+              <option value="linear_search">Linear Search</option>
+              <option value="merge_sort">Merge Sort</option>
+              <option value="fib_recursive">Fibonacci (Recursive)</option>
+            </select>
+            <div class="cc-stats-box" id="compareStats">
+              Select two algorithms to compare their estimated operations at N.
             </div>
           </div>
         </div>
@@ -538,8 +463,10 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="auth.js"></script>
     <script src="script.js"></script>
-    <script src="sorting-visualizer.js"></script>
+    <script src="complexity-calculator.js"></script>
   </body>
 </html>
+

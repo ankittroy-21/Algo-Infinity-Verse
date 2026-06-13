@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Algo Infinity Verse - Master DSA &amp; Crack Interviews</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="rust-learning.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Poppins:wght@300;400;500;600;700&amp;family=Fira+Code:wght@400;500;600&amp;display=swap"
       rel="stylesheet"
@@ -13,13 +14,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" 
-      integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg==" 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer" 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css"
+      integrity="sha512-W/zrbCncQnky/EzL+/AYwTtosvrM+YG/V6piQLSe2HuKS6cmbw89kjYkp3tWFn1dkWV7L1ruvJyKbLz73Vlgfg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    </head>
+  </head>
   <body>
     <!-- Loading Screen -->
     <div id="loading-screen">
@@ -48,7 +50,11 @@
           <a href="#home" class="nav-link">Home</a>
         </li>
         <li class="nav-item has-dropdown">
-          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <button
+            class="nav-link dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <span>Learn</span>
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </button>
@@ -93,19 +99,31 @@
           </div>
         </li>
         <li class="nav-item has-dropdown">
-          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <button
+            class="nav-link dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <span>Interview</span>
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </button>
           <div class="dropdown-menu">
             <a href="#interview" class="dropdown-item">Interview Prep</a>
-            <a href="cheat-sheets.html" class="dropdown-item">DSA Cheat Sheets</a>
+            <a href="cheat-sheets.html" class="dropdown-item"
+              >DSA Cheat Sheets</a
+            >
             <a href="system-design.html" class="dropdown-item">System Design</a>
-            <a href="behavioral-questions.html" class="dropdown-item">Behavioral Questions</a>
+            <a href="behavioral-questions.html" class="dropdown-item"
+              >Behavioral Questions</a
+            >
           </div>
         </li>
         <li class="nav-item has-dropdown">
-          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <button
+            class="nav-link dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <span>Community</span>
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </button>
@@ -117,7 +135,11 @@
           </div>
         </li>
         <li class="nav-item has-dropdown nav-profile-dropdown">
-          <button class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+          <button
+            class="nav-link dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             <span>Profile</span>
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </button>
@@ -135,11 +157,19 @@
               Coding Resume
             </a>
             <div class="dropdown-divider"></div>
-            <a href="login.html" class="dropdown-item nav-auth-link" id="navLoginBtn">
+            <a
+              href="login.html"
+              class="dropdown-item nav-auth-link"
+              id="navLoginBtn"
+            >
               <i class="fas fa-sign-in-alt"></i>
               Sign In
             </a>
-            <a href="signup.html" class="dropdown-item nav-auth-link" id="navSignupBtn">
+            <a
+              href="signup.html"
+              class="dropdown-item nav-auth-link"
+              id="navSignupBtn"
+            >
               <i class="fas fa-user-plus"></i>
               Sign Up
             </a>
@@ -153,10 +183,19 @@
         </li>
       </ul>
       <div class="nav-buttons">
-        <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle dark mode">
+        <button
+          id="darkModeToggle"
+          class="dark-mode-btn"
+          aria-label="Toggle dark mode"
+        >
           <i class="fas fa-moon"></i>
         </button>
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
           <i class="fas fa-bars"></i>
         </button>
       </div>
@@ -292,6 +331,48 @@
         </div>
       </div>
     </section>
+    <!-- Rust Playground Section -->
+    <section id="rust-playground" class="section rust-playground-section">
+      <div class="container">
+        <div class="rust-hero">
+          <h2 class="section-title">
+            <span class="title-icon">🦀</span>
+            Rust Code Playground
+          </h2>
+          <p class="section-subtitle">
+            Write, compile, and run Rust programs directly in the browser using
+            a sandboxed execution API.
+          </p>
+        </div>
+
+        <div class="rust-playground">
+          <div class="rust-editor-panel">
+            <div class="panel-header">
+              <h2>Editor</h2>
+              <select id="rustExampleSelect">
+                <option value="hello">Hello World</option>
+                <option value="ownership">Ownership & Borrowing</option>
+                <option value="structs">Structs & Enums</option>
+                <option value="concurrency">Basic Concurrency</option>
+              </select>
+            </div>
+
+            <textarea id="rustEditor" spellcheck="false"></textarea>
+
+            <div class="rust-actions">
+              <button id="runRustBtn">Run Code</button>
+              <button id="resetRustBtn">Reset</button>
+              <button id="clearRustOutputBtn">Clear Output</button>
+            </div>
+          </div>
+
+          <div class="rust-output-panel">
+            <h2>Output Console</h2>
+            <pre id="rustOutput">Output will appear here...</pre>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Quiz Section -->
     <section id="quiz" class="section quiz-section">
@@ -318,7 +399,7 @@
         </h2>
         <div class="roadmap-container">
           <div class="roadmap-progress">
-             <div class="progress-bar"></div>
+            <div class="progress-bar"></div>
           </div>
           <div class="roadmap-stages">
             <div class="stage" data-level="beginner">
@@ -365,10 +446,18 @@
 
         <!-- Roadmap Tabs Selector -->
         <div class="roadmap-selector">
-          <button class="roadmap-tab active" data-tab="basic" id="roadmapBasicTab">
+          <button
+            class="roadmap-tab active"
+            data-tab="basic"
+            id="roadmapBasicTab"
+          >
             <i class="fas fa-seedling"></i> Beginner Roadmap
           </button>
-          <button class="roadmap-tab" data-tab="overview" id="roadmapOverviewTab">
+          <button
+            class="roadmap-tab"
+            data-tab="overview"
+            id="roadmapOverviewTab"
+          >
             <i class="fas fa-route"></i> Overall Stages
           </button>
         </div>
@@ -478,7 +567,9 @@
               <i class="fas fa-file-alt"></i>
             </div>
             <h3>Coding Resume</h3>
-            <p>View your coding journey in a beautiful, structured resume layout</p>
+            <p>
+              View your coding journey in a beautiful, structured resume layout
+            </p>
             <a
               href="resume.html"
               class="card-btn"
@@ -529,6 +620,25 @@
               Start Learning
             </a>
           </div>
+          <div class="interview-card">
+            <div class="card-icon">
+                <i class="fas fa-file-alt"></i>
+             </div>
+
+                   <h3>Resume Tips</h3>
+
+                  <p> Learn resume structure, ATS-friendly formatting, project presentation, and placement preparation.</p>
+
+                  <a href="resume-tips.html" 
+                  class="card-btn"
+                  style="
+                text-decoration: none;
+                display: inline-block;
+                text-align: center;
+              ">
+                    Start Learning
+                    </a>
+              </div>
         </div>
       </div>
     </section>
@@ -586,18 +696,34 @@
                 <span class="profile-stat-label">Badges</span>
               </div>
             </div>
-            <div class="profile-progress" style="margin-bottom: 1rem;">
+            <div class="profile-progress" style="margin-bottom: 1rem">
               <div class="progress-bar-container">
                 <div class="progress-label">
                   <span>Level Progress</span>
                   <span id="profileLevelProgress">0%</span>
                 </div>
                 <div class="progress-bar">
-                   <div class="progress-fill" id="profileProgressBarSection"></div>
+                  <div
+                    class="progress-fill"
+                    id="profileProgressBarSection"
+                  ></div>
                 </div>
               </div>
             </div>
-            <a href="resume.html" class="btn btn-secondary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5rem; padding: 0.6rem; font-size: 0.9rem; text-decoration: none;">
+            <a
+              href="resume.html"
+              class="btn btn-secondary"
+              style="
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.6rem;
+                font-size: 0.9rem;
+                text-decoration: none;
+              "
+            >
               <i class="fas fa-file-alt"></i> View Coding Resume
             </a>
           </div>
@@ -644,7 +770,9 @@
               <span>More</span>
             </div>
             <div class="heatmap-container" id="activityHeatmap">
-              <p class="empty-state">No activity data yet. Start solving problems!</p>
+              <p class="empty-state">
+                No activity data yet. Start solving problems!
+              </p>
             </div>
             <div class="heatmap-tooltip" id="heatmapTooltip"></div>
           </div>
@@ -693,10 +821,13 @@
               <span class="xp-text" id="xpText">0 / 1000 XP</span>
             </div>
             <div class="level-info">
-              <span class="level-badge" id="levelBadge" 
-                onclick="openGameModal()" 
-                style="cursor:pointer"
-                title="Click to play DSA games!">
+              <span
+                class="level-badge"
+                id="levelBadge"
+                onclick="openGameModal()"
+                style="cursor: pointer"
+                title="Click to play DSA games!"
+              >
                 Level 1 - Beginner
               </span>
             </div>
@@ -711,7 +842,6 @@
       </div>
     </section>
 
-
     <!-- Game Modal -->
     <div
       class="modal game-modal"
@@ -723,13 +853,26 @@
       <div class="game-modal-content">
         <div class="game-modal-header">
           <h3 id="gameModalTitle">🎮 DSA Game</h3>
-          <button class="modal-close" onclick="closeGameModal()" aria-label="Close game modal">×</button>
+          <button
+            class="modal-close"
+            onclick="closeGameModal()"
+            aria-label="Close game modal"
+          >
+            ×
+          </button>
         </div>
         <div class="game-modal-body" id="gameModalBody">
-
           <!-- Game Type Selector -->
           <div id="gameTypeSelector">
-            <h4 style="text-align:center; margin-bottom:1.5rem; color:var(--accent)">Choose Your Game Mode</h4>
+            <h4
+              style="
+                text-align: center;
+                margin-bottom: 1.5rem;
+                color: var(--accent);
+              "
+            >
+              Choose Your Game Mode
+            </h4>
             <div class="game-type-grid">
               <div class="game-type-card" onclick="startGame('quiz')">
                 <div class="game-type-icon">🧩</div>
@@ -753,21 +896,29 @@
           </div>
 
           <!-- Game Play Area -->
-          <div id="gamePlayArea" style="display:none">
+          <div id="gamePlayArea" style="display: none">
             <div class="game-stats-bar">
               <span class="game-stat">⏱️ <span id="gameTimer">30</span>s</span>
-              <span class="game-stat">✅ Score: <span id="gameScore">0</span></span>
-              <span class="game-stat">❓ Q: <span id="gameQuestion">1</span>/10</span>
+              <span class="game-stat"
+                >✅ Score: <span id="gameScore">0</span></span
+              >
+              <span class="game-stat"
+                >❓ Q: <span id="gameQuestion">1</span>/10</span
+              >
             </div>
             <div class="game-question-area">
               <div class="game-question-text" id="gameQuestionText"></div>
               <div class="game-options-grid" id="gameOptionsGrid"></div>
             </div>
-            <div class="game-explanation" id="gameExplanation" style="display:none"></div>
+            <div
+              class="game-explanation"
+              id="gameExplanation"
+              style="display: none"
+            ></div>
           </div>
 
           <!-- Game Results -->
-          <div id="gameResults" style="display:none">
+          <div id="gameResults" style="display: none">
             <div class="game-results-content">
               <div class="game-results-icon">🏆</div>
               <h3 id="gameResultsTitle">Game Complete!</h3>
@@ -786,13 +937,21 @@
                 </div>
               </div>
               <div class="game-results-buttons">
-                <button class="btn btn-primary" onclick="restartGame()">🔄 Play Again</button>
-                <button class="btn btn-secondary" onclick="showGameTypeSelector()">🎮 Change Mode</button>
-                <button class="btn btn-outline" onclick="closeGameModal()">✖ Close</button>
+                <button class="btn btn-primary" onclick="restartGame()">
+                  🔄 Play Again
+                </button>
+                <button
+                  class="btn btn-secondary"
+                  onclick="showGameTypeSelector()"
+                >
+                  🎮 Change Mode
+                </button>
+                <button class="btn btn-outline" onclick="closeGameModal()">
+                  ✖ Close
+                </button>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -856,15 +1015,20 @@
         <div class="modal-header">
           <div class="step-badge-tag" id="roadmapStepBadge">Step 1</div>
           <h3 id="roadmapStepModalTitle">Introduction to DSA</h3>
-          <button class="modal-close" id="roadmapStepModalClose">&times;</button>
+          <button class="modal-close" id="roadmapStepModalClose">
+            &times;
+          </button>
         </div>
         <div class="modal-body">
           <div class="roadmap-step-theory">
             <h4><i class="fas fa-book-open"></i> Theory & Key Concepts</h4>
             <div id="roadmapStepTheoryContent" class="theory-text"></div>
           </div>
-          
-          <div id="roadmapStepComplexitySection" class="roadmap-step-complexity hidden">
+
+          <div
+            id="roadmapStepComplexitySection"
+            class="roadmap-step-complexity hidden"
+          >
             <h4><i class="fas fa-table"></i> Complexity Reference</h4>
             <div class="table-responsive">
               <table class="complexity-table">
@@ -875,27 +1039,41 @@
                     <th>Space Complexity</th>
                   </tr>
                 </thead>
-                <tbody id="roadmapStepComplexityBody">
-                </tbody>
+                <tbody id="roadmapStepComplexityBody"></tbody>
               </table>
             </div>
           </div>
 
           <div id="roadmapStepQuizSection" class="roadmap-step-quiz hidden">
-            <h4><i class="fas fa-graduation-cap"></i> Concept Verification Quiz</h4>
-            <p class="quiz-instruction-text">Answer the questions below correctly to complete this step and earn +50 XP!</p>
+            <h4>
+              <i class="fas fa-graduation-cap"></i> Concept Verification Quiz
+            </h4>
+            <p class="quiz-instruction-text">
+              Answer the questions below correctly to complete this step and
+              earn +50 XP!
+            </p>
             <div id="roadmapStepQuizContent"></div>
-            <button class="btn btn-primary" id="roadmapStepSubmitQuizBtn">Submit Quiz</button>
+            <button class="btn btn-primary" id="roadmapStepSubmitQuizBtn">
+              Submit Quiz
+            </button>
           </div>
 
-          <div id="roadmapStepProblemsSection" class="roadmap-step-problems hidden">
+          <div
+            id="roadmapStepProblemsSection"
+            class="roadmap-step-problems hidden"
+          >
             <h4><i class="fas fa-code"></i> Curated Coding Practice</h4>
-            <p class="problems-instruction-text">Solve at least one of the coding problems below to complete this step!</p>
+            <p class="problems-instruction-text">
+              Solve at least one of the coding problems below to complete this
+              step!
+            </p>
             <ul class="roadmap-problems-list" id="roadmapStepProblemsList"></ul>
           </div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" id="roadmapStepModalCloseBtn">Close</button>
+          <button class="btn btn-secondary" id="roadmapStepModalCloseBtn">
+            Close
+          </button>
         </div>
       </div>
     </div>
@@ -1244,6 +1422,7 @@
               <li><a href="#practice">Practice Problems</a></li>
               <li><a href="#roadmap">Learning Roadmap</a></li>
               <li><a href="#interview">Interview Prep</a></li>
+              <li><a href="#rust-learning">Rust Playground</a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -1311,11 +1490,14 @@
           </div>
         </div>
         <div class="footer-bottom">
-            <p>
-              <span>&copy; <span id="footer-current-year"></span> Algo Infinity Verse. Crafted with 💜 for learners worldwide.</span>
-              <br />
-              <span class="footer-current-date" id="footer-current-date"></span>
-            </p>
+          <p>
+            <span
+              >&copy; <span id="footer-current-year"></span> Algo Infinity
+              Verse. Crafted with 💜 for learners worldwide.</span
+            >
+            <br />
+            <span class="footer-current-date" id="footer-current-date"></span>
+          </p>
         </div>
       </div>
     </footer>
@@ -1325,9 +1507,17 @@
     </button>
 
     <!-- Auth Gate Modal -->
-    <div class="modal" id="authGateModal" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
+    <div
+      class="modal"
+      id="authGateModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="authGateTitle"
+    >
       <div class="modal-content auth-gate-modal-content">
-        <button class="modal-close" id="authGateModalClose" aria-label="Close">&times;</button>
+        <button class="modal-close" id="authGateModalClose" aria-label="Close">
+          &times;
+        </button>
         <div class="auth-gate-icon">
           <div class="auth-gate-lock-ring">
             <i class="fas fa-lock"></i>
@@ -1338,24 +1528,41 @@
           Sign in to unlock this feature and track your progress.
         </p>
         <div class="auth-gate-perks">
-          <div class="auth-gate-perk"><i class="fas fa-chart-line"></i> Track your progress &amp; streaks</div>
-          <div class="auth-gate-perk"><i class="fas fa-trophy"></i> Earn XP &amp; unlock badges</div>
-          <div class="auth-gate-perk"><i class="fas fa-users"></i> Join the leaderboard</div>
+          <div class="auth-gate-perk">
+            <i class="fas fa-chart-line"></i> Track your progress &amp; streaks
+          </div>
+          <div class="auth-gate-perk">
+            <i class="fas fa-trophy"></i> Earn XP &amp; unlock badges
+          </div>
+          <div class="auth-gate-perk">
+            <i class="fas fa-users"></i> Join the leaderboard
+          </div>
         </div>
         <div class="auth-gate-actions">
-          <a href="/login" id="authGateLoginBtn" class="btn btn-primary auth-gate-btn">
+          <a
+            href="/login"
+            id="authGateLoginBtn"
+            class="btn btn-primary auth-gate-btn"
+          >
             <i class="fas fa-sign-in-alt"></i> Login
           </a>
-          <a href="/signup" id="authGateSignupBtn" class="btn btn-secondary auth-gate-btn">
+          <a
+            href="/signup"
+            id="authGateSignupBtn"
+            class="btn btn-secondary auth-gate-btn"
+          >
             <i class="fas fa-user-plus"></i> Sign Up Free
           </a>
         </div>
         <p class="auth-gate-dismiss">
-          <button class="auth-gate-dismiss-btn" id="authGateDismiss">Maybe later</button>
+          <button class="auth-gate-dismiss-btn" id="authGateDismiss">
+            Maybe later
+          </button>
         </p>
       </div>
     </div>
 
+    <script src="rust-learning.js"></script>
     <script src="auth.js"></script>
     <script src="script.js?v=20260601"></script>
     <script src="auth-gate.js"></script>
