@@ -1114,6 +1114,14 @@ const practiceProblems = [
     tags: ["Linked List", "Recursion"],
     acceptance: "58.5%",
     category: "linkedlist",
+    description:
+      "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list by splicing together the nodes of the first two lists, and return the head of the merged linked list.",
+    constraints: [
+      "The number of nodes in both lists is in the range [0, 50]",
+      "-100 ≤ Node.val ≤ 100",
+      "Both list1 and list2 are sorted in non-decreasing order",
+    ],
+    followUp: "Can you solve it iteratively using O(1) extra space, and also recursively?",
   },
   {
     id: 4,
@@ -1122,6 +1130,13 @@ const practiceProblems = [
     tags: ["Arrays", "Divide & Conquer"],
     acceptance: "46.2%",
     category: "arrays",
+    description:
+      "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum, and return its sum.",
+    constraints: [
+      "1 ≤ nums.length ≤ 10⁵",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    followUp: "Can you solve it in O(n) time using Kadane's Algorithm?",
   },
   {
     id: 5,
@@ -1130,6 +1145,14 @@ const practiceProblems = [
     tags: ["Design", "Hash Table"],
     acceptance: "37.5%",
     category: "arrays",
+    description:
+      "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache. Implement get(key) and put(key, value) operations. When the cache reaches its capacity, it should invalidate the least recently used item before inserting a new item.",
+    constraints: [
+      "1 ≤ capacity ≤ 3000",
+      "0 ≤ key, value ≤ 10⁴",
+      "At most 2 × 10⁵ calls will be made to get and put",
+    ],
+    followUp: "Can you implement both get and put in O(1) time complexity?",
   },
   {
     id: 6,
@@ -1138,6 +1161,15 @@ const practiceProblems = [
     tags: ["Graphs", "DFS", "BFS"],
     acceptance: "43.2%",
     category: "graphs",
+    description:
+      "Given a reference to a node in a connected undirected graph, return a deep copy (clone) of the graph. Each node in the graph contains a value and a list of its neighbors.",
+    constraints: [
+      "The number of nodes in the graph is in the range [0, 100]",
+      "1 ≤ Node.val ≤ 100",
+      "Node.val is unique for each node",
+      "There are no repeated edges and no self-loops",
+    ],
+    followUp: "Can you solve it using both BFS and DFS approaches?",
   },
   {
     id: 7,
@@ -1146,6 +1178,13 @@ const practiceProblems = [
     tags: ["DP", "Binary Search"],
     acceptance: "42.1%",
     category: "dp",
+    description:
+      "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+    constraints: [
+      "1 ≤ nums.length ≤ 2500",
+      "-10⁴ ≤ nums[i] ≤ 10⁴",
+    ],
+    followUp: "Can you improve from O(n²) DP to O(n log n) using binary search (patience sorting)?",
   },
   {
     id: 8,
@@ -1154,6 +1193,15 @@ const practiceProblems = [
     tags: ["Graphs", "BFS"],
     acceptance: "31.4%",
     category: "graphs",
+    description:
+      "Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, such that only one letter can be changed at a time and each transformed word must exist in wordList. Return 0 if no such sequence exists.",
+    constraints: [
+      "1 ≤ beginWord.length ≤ 10",
+      "endWord.length == beginWord.length",
+      "1 ≤ wordList.length ≤ 5000",
+      "All words consist of lowercase English letters",
+    ],
+    followUp: "Can you find ALL shortest transformation sequences (Word Ladder II)?",
   },
   {
     id: 9,
@@ -1162,6 +1210,13 @@ const practiceProblems = [
     tags: ["Arrays", "Two Pointers"],
     acceptance: "48.7%",
     category: "arrays",
+    description:
+      "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+    constraints: [
+      "1 ≤ height.length ≤ 2 × 10⁴",
+      "0 ≤ height[i] ≤ 10⁵",
+    ],
+    followUp: "Can you solve it in O(n) time and O(1) space using the two-pointer technique?",
   },
   {
     id: 10,
@@ -1170,6 +1225,13 @@ const practiceProblems = [
     tags: ["Linked List"],
     acceptance: "72.1%",
     category: "linkedlist",
+    description:
+      "Given the head of a singly linked list, reverse the list, and return the reversed list's head.",
+    constraints: [
+      "The number of nodes in the list is in the range [0, 5000]",
+      "-5000 ≤ Node.val ≤ 5000",
+    ],
+    followUp: "Can you solve it both iteratively and recursively?",
   },
   {
     id: 11,
@@ -1178,6 +1240,13 @@ const practiceProblems = [
     tags: ["Trees", "DFS"],
     acceptance: "68.5%",
     category: "trees",
+    description:
+      "Given the root of a binary tree, invert the tree, and return its root. Inverting means swapping the left and right children of every node.",
+    constraints: [
+      "The number of nodes is in the range [0, 100]",
+      "-100 ≤ Node.val ≤ 100",
+    ],
+    followUp: "Can you solve it both recursively and iteratively using a queue or stack?",
   },
   {
     id: 12,
@@ -1186,6 +1255,13 @@ const practiceProblems = [
     tags: ["Trees", "Recursion"],
     acceptance: "28.4%",
     category: "trees",
+    description:
+      "Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as: the left subtree of a node contains only nodes with keys less than the node's key, the right subtree only contains nodes with keys greater than the node's key, and both left and right subtrees must also be binary search trees.",
+    constraints: [
+      "The number of nodes is in the range [1, 10⁴]",
+      "-2³¹ ≤ Node.val ≤ 2³¹ - 1",
+    ],
+    followUp: "Can you solve it without recursion, e.g. using iterative inorder traversal or Morris Traversal?",
   },
   {
     id: 13,
@@ -1194,6 +1270,13 @@ const practiceProblems = [
     tags: ["Graphs", "DFS"],
     acceptance: "54.8%",
     category: "graphs",
+    description:
+      "Given an m x n 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.",
+    constraints: [
+      "1 ≤ m, n ≤ 300",
+      "grid[i][j] is '0' or '1'",
+    ],
+    followUp: "Can you solve it using both DFS and Union-Find (Disjoint Set Union)?",
   },
   {
     id: 14,
@@ -1202,6 +1285,13 @@ const practiceProblems = [
     tags: ["DP", "Arrays"],
     acceptance: "42.3%",
     category: "dp",
+    description:
+      "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, and adjacent houses have security systems connected — if two adjacent houses are broken into on the same night, the alarm will go off. Given an integer array nums representing the amount of money in each house, return the maximum amount of money you can rob without robbing two adjacent houses.",
+    constraints: [
+      "1 ≤ nums.length ≤ 100",
+      "0 ≤ nums[i] ≤ 400",
+    ],
+    followUp: "What if the houses are arranged in a circle, where the first and last houses are adjacent? (House Robber II)",
   },
   {
     id: 15,
@@ -1210,6 +1300,15 @@ const practiceProblems = [
     tags: ["Graphs", "Topological Sort"],
     acceptance: "44.7%",
     category: "graphs",
+    description:
+      "There are numCourses courses labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai. Return true if you can finish all courses, otherwise return false.",
+    constraints: [
+      "1 ≤ numCourses ≤ 2000",
+      "0 ≤ prerequisites.length ≤ 5000",
+      "prerequisites[i].length == 2",
+      "0 ≤ ai, bi < numCourses",
+    ],
+    followUp: "Can you return the actual valid course order using topological sort (Course Schedule II)?",
   },
   {
     id: 16,
@@ -1655,7 +1754,6 @@ let userProgress = {
   activityData: {}, // date-string -> count (e.g. "2026-06-05" -> 3)
 };
 
-applySavedTheme();
 
 // ===== QUIZ EDITOR (state) =====
 // Declared early to avoid TDZ issues when referenced by event handlers.
@@ -1663,6 +1761,9 @@ let currentProblem = null;
 
 // ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Apply saved theme only after DOM is ready to avoid touching document.body too early
+  applySavedTheme();
 
   loadUserData();
   initLoadingScreen();
@@ -6113,3 +6214,251 @@ function initBackToTopButtons() {
 }
 
 initBackToTopButtons();
+// ===== GAME SYSTEM =====
+let currentGame = {
+  type: null,
+  topic: null,
+  questions: [],
+  currentIndex: 0,
+  score: 0,
+  correct: 0,
+  total: 0,
+  timer: null,
+  timeLeft: 30,
+  xpEarned: 0,
+};
+
+// Complexity guesser questions
+const complexityQuestions = [
+  {
+    question: "What is the time complexity of this code?\n\nfor(let i=0; i<n; i++) {\n  console.log(i);\n}",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 2,
+    explanation: "Single loop runs n times = O(n)"
+  },
+  {
+    question: "What is the time complexity?\n\nfor(let i=0; i<n; i++) {\n  for(let j=0; j<n; j++) {\n    console.log(i,j);\n  }\n}",
+    options: ["O(n)", "O(n log n)", "O(n²)", "O(2^n)"],
+    correct: 2,
+    explanation: "Nested loops both running n times = O(n²)"
+  },
+  {
+    question: "What is the time complexity?\n\nlet i = n;\nwhile(i > 1) {\n  i = Math.floor(i/2);\n}",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 1,
+    explanation: "Halving n each time = O(log n)"
+  },
+  {
+    question: "What is the space complexity?\n\nfunction sum(n) {\n  if(n <= 0) return 0;\n  return n + sum(n-1);\n}",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 2,
+    explanation: "Recursive calls stack n frames = O(n) space"
+  },
+  {
+    question: "What is the time complexity of binary search?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n log n)"],
+    correct: 1,
+    explanation: "Binary search halves search space each step = O(log n)"
+  },
+  {
+    question: "What is the time complexity?\n\nconst map = {};\nfor(let i=0; i<n; i++) {\n  map[arr[i]] = i;\n}",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 2,
+    explanation: "Single loop with O(1) hash operations = O(n)"
+  },
+  {
+    question: "What is the time complexity of merge sort?",
+    options: ["O(n)", "O(n log n)", "O(n²)", "O(log n)"],
+    correct: 1,
+    explanation: "Merge sort divides and merges = O(n log n)"
+  },
+  {
+    question: "What is the space complexity of an array of size n?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 2,
+    explanation: "Array stores n elements = O(n) space"
+  },
+  {
+    question: "What is the time complexity of accessing a hash map?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 0,
+    explanation: "Hash map provides O(1) average access time"
+  },
+  {
+    question: "What is the time complexity?\n\nfor(let i=1; i<n; i*=2) {\n  console.log(i);\n}",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 1,
+    explanation: "Multiplying by 2 each time = O(log n)"
+  },
+];
+
+function openGameModal() {
+  const modal = document.getElementById("gameModal");
+  const level = userProgress.level || 1;
+  const levelNames = ["Beginner","Novice","Intermediate","Advanced","Expert","Master","Grandmaster","Legend"];
+  document.getElementById("gameModalTitle").textContent = 
+    `🎮 Level ${level} - ${levelNames[level-1]} Games`;
+  showGameTypeSelector();
+  modal.classList.add("active");
+}
+
+function closeGameModal() {
+  document.getElementById("gameModal").classList.remove("active");
+  clearInterval(currentGame.timer);
+  resetGame();
+}
+
+function showGameTypeSelector() {
+  document.getElementById("gameTypeSelector").style.display = "block";
+  document.getElementById("gamePlayArea").style.display = "none";
+  document.getElementById("gameResults").style.display = "none";
+  clearInterval(currentGame.timer);
+}
+
+function getTopicForLevel() {
+  const level = userProgress.level || 1;
+  const topics = ["arrays","strings","linkedlist","trees","graphs","dp","arrays","strings"];
+  return topics[level - 1] || "arrays";
+}
+
+function startGame(type) {
+  currentGame.type = type;
+  currentGame.score = 0;
+  currentGame.correct = 0;
+  currentGame.xpEarned = 0;
+  currentGame.currentIndex = 0;
+
+  const topic = getTopicForLevel();
+
+  if (type === "complexity") {
+    currentGame.questions = [...complexityQuestions].sort(() => Math.random() - 0.5).slice(0, 10);
+  } else {
+    const topicQuestions = quizQuestions[topic] || quizQuestions.arrays;
+    currentGame.questions = [...topicQuestions].sort(() => Math.random() - 0.5).slice(0, 10);
+  }
+
+  currentGame.total = currentGame.questions.length;
+
+  document.getElementById("gameTypeSelector").style.display = "none";
+  document.getElementById("gamePlayArea").style.display = "block";
+  document.getElementById("gameResults").style.display = "none";
+
+  loadGameQuestion();
+}
+
+function loadGameQuestion() {
+  if (currentGame.currentIndex >= currentGame.total) {
+    endGame();
+    return;
+  }
+
+  const q = currentGame.questions[currentGame.currentIndex];
+  document.getElementById("gameQuestion").textContent = currentGame.currentIndex + 1;
+  document.getElementById("gameScore").textContent = currentGame.score;
+  document.getElementById("gameQuestionText").textContent = q.question;
+  document.getElementById("gameExplanation").style.display = "none";
+
+  const optionsGrid = document.getElementById("gameOptionsGrid");
+  optionsGrid.innerHTML = q.options.map((opt, i) =>
+    `<button class="game-option" onclick="selectGameAnswer(${i})">${opt}</button>`
+  ).join("");
+
+  // Start timer
+  clearInterval(currentGame.timer);
+  currentGame.timeLeft = currentGame.type === "speed" ? 60 : 30;
+  
+  if (currentGame.type === "speed" && currentGame.currentIndex === 0) {
+    currentGame.timeLeft = 60;
+  }
+
+  document.getElementById("gameTimer").textContent = currentGame.timeLeft;
+
+  if (currentGame.type !== "speed" || currentGame.currentIndex === 0) {
+    currentGame.timer = setInterval(() => {
+      currentGame.timeLeft--;
+      document.getElementById("gameTimer").textContent = currentGame.timeLeft;
+      if (currentGame.timeLeft <= 0) {
+        clearInterval(currentGame.timer);
+        if (currentGame.type === "speed") {
+          endGame();
+        } else {
+          // Time's up — move to next
+          selectGameAnswer(-1);
+        }
+      }
+    }, 1000);
+  }
+}
+
+function selectGameAnswer(index) {
+  clearInterval(currentGame.timer);
+  const q = currentGame.questions[currentGame.currentIndex];
+  const options = document.querySelectorAll(".game-option");
+  const xpPerQ = currentGame.type === "quiz" ? 20 : currentGame.type === "speed" ? 10 : 15;
+
+  options.forEach(opt => opt.style.pointerEvents = "none");
+
+  if (index === q.correct) {
+    if (options[index]) options[index].classList.add("correct");
+    currentGame.score += 10;
+    currentGame.correct++;
+    currentGame.xpEarned += xpPerQ;
+    document.getElementById("gameScore").textContent = currentGame.score;
+  } else {
+    if (options[index]) options[index].classList.add("wrong");
+    if (options[q.correct]) options[q.correct].classList.add("correct");
+  }
+
+  // Show explanation
+  const expEl = document.getElementById("gameExplanation");
+  expEl.textContent = `💡 ${q.explanation}`;
+  expEl.style.display = "block";
+
+  currentGame.currentIndex++;
+
+  setTimeout(() => {
+    loadGameQuestion();
+  }, currentGame.type === "speed" ? 800 : 1500);
+}
+
+function endGame() {
+  clearInterval(currentGame.timer);
+
+  // Award XP
+  addXP(currentGame.xpEarned);
+  updateGamification();
+
+  const accuracy = Math.round((currentGame.correct / currentGame.total) * 100);
+
+  document.getElementById("gamePlayArea").style.display = "none";
+  document.getElementById("gameResults").style.display = "block";
+
+  const titles = {
+    quiz: "Quiz Complete! 🧩",
+    speed: "Speed Round Over! ⚡",
+    complexity: "Complexity Master! 🎯"
+  };
+
+  document.getElementById("gameResultsTitle").textContent = titles[currentGame.type];
+  document.getElementById("resultScore").textContent = currentGame.score;
+  document.getElementById("resultXP").textContent = `+${currentGame.xpEarned}`;
+  document.getElementById("resultAccuracy").textContent = `${accuracy}%`;
+
+  // Show notification
+  showNotification(
+    `🎮 Game Over! Score: ${currentGame.score} | +${currentGame.xpEarned} XP earned!`,
+    "success"
+  );
+}
+
+function restartGame() {
+  startGame(currentGame.type);
+}
+
+function resetGame() {
+  currentGame = {
+    type: null, topic: null, questions: [],
+    currentIndex: 0, score: 0, correct: 0,
+    total: 0, timer: null, timeLeft: 30, xpEarned: 0,
+  };
+}

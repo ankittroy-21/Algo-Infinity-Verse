@@ -53,34 +53,42 @@
             <i class="fas fa-chevron-down dropdown-icon"></i>
           </button>
           <div class="dropdown-menu">
-            <a href="#topics" class="dropdown-item">DSA Topics</a>
-            <a href="#practice" class="dropdown-item">Practice Problems</a>
-            <a href="#quiz" class="dropdown-item">Quizzes</a>
-            <a href="#roadmap" class="dropdown-item">Learning Roadmap</a>
-            <a href="python-learning.html" class="dropdown-item">Learn Python</a>
-            <a href="javascript-learning.html" class="dropdown-item">Learn JavaScript</a>
-            <a href="java-learning.html" class="dropdown-item">Learn Java</a>
-            <a href="cplusplus-learning.html" class="dropdown-item">Learn C++</a>
-            <a href="c-learning.html" class="dropdown-item">Learn C</a>
-            <a href="dbms-learning.html" class="dropdown-item">Learn DBMS</a>
-            <a href="bit-manipulation-learning.html"  class="dropdown-item">Learn Bit Manipulation</a>
-            <a href="sliding-window-learning.html"  class="dropdown-item">Learn Sliding Window</a>
-            <a href="prefix-sum-learning.html"  class="dropdown-item">Learn Prefix Sum</a>
-            <a href="recursion-learning.html" class="dropdown-item">Learn Recursion</a>
-            <a href="powerbi-learning.html" class="dropdown-item">Learn Power BI</a>
-            <a href="php-learning.html" class="dropdown-item">Learn PHP</a>
-            <a href="oop-learning.html" class="dropdown-item">Learn OOP</a>
-            <a href="computer-architecture.html" class="dropdown-item">Learn Architecture</a>
+            <a href="index.html#topics" class="dropdown-item" role="menuitem">DSA Topics</a>
+            <a href="index.html#practice" class="dropdown-item" role="menuitem">Practice Problems</a>
+            <a href="index.html#quiz" class="dropdown-item" role="menuitem">Quizzes</a>
+            <a href="index.html#roadmap" class="dropdown-item" role="menuitem">Learning Roadmap</a>
+            <a href="python-learning.html" class="dropdown-item" role="menuitem">Learn Python</a>
+            <a href="javascript-learning.html" class="dropdown-item" role="menuitem">Learn JavaScript</a>
+            <a href="react-playground.html" class="dropdown-item" role="menuitem">React Playground</a>
+            <a href="java-learning.html" class="dropdown-item" role="menuitem">Learn Java</a>
+            <a href="cplusplus-learning.html" class="dropdown-item" role="menuitem">Learn C++</a>
+            <a href="c-learning.html" class="dropdown-item" role="menuitem">Learn C</a>
+            <a href="os-learning.html" class="dropdown-item" role="menuitem">Learn OS</a>
+            <a href="array-learning.html" class="dropdown-item" role="menuitem">Learn Arrays</a>
+            <a href="dbms-learning.html" class="dropdown-item" role="menuitem">Learn DBMS</a>
+            <a href="sql-learning.html" class="dropdown-item" role="menuitem">Learn SQL</a>
+            <a href="bit-manipulation-learning.html" class="dropdown-item" role="menuitem">Learn Bit Manipulation</a>
+            <a href="sliding-window-learning.html" class="dropdown-item" role="menuitem">Learn Sliding Window</a>
+            <a href="prefix-sum-learning.html" class="dropdown-item" role="menuitem">Learn Prefix Sum</a>
+            <a href="recursion-learning.html" class="dropdown-item" role="menuitem">Learn Recursion</a>
+            <a href="powerbi-learning.html" class="dropdown-item" role="menuitem">Learn Power BI</a>
+            <a href="php-learning.html" class="dropdown-item" role="menuitem">Learn PHP</a>
+            <a href="oop-learning.html" class="dropdown-item" role="menuitem">Learn OOP</a>
+            <a href="computer-architecture.html" class="dropdown-item" role="menuitem">Learn Architecture</a>
             <a href="trees-learning.html" class="dropdown-item" role="menuitem">Learn Trees</a>
-            <a href="tree-traversal.html" class="dropdown-item">Tree Traversal</a>
-            <a href="binary-search.html" class="dropdown-item">Learn Binary Search</a>
-            <a href="shortest-path-learning.html" class="dropdown-item">Learn Shortest Path</a>
-            <a href="divide-and-conquer-learning.html" class="dropdown-item">Learn Divide & Conquer</a>
-            <a href="matrix-learning.html" class="dropdown-item">Learn Matrix</a>
-            <a href="graph-learning.html" class="dropdown-item">Learn Graph</a>
-            <a href="sorting-visualizer.html" class="dropdown-item">Sorting Visualizer</a>
-            <a href="graph-visualizer.html" class="dropdown-item">Graph Visualizer</a>
-            <a href="pathfinding-visualizer.html" class="dropdown-item">Pathfinding Visualizer</a>
+            <a href="tree-visualizer.html" class="dropdown-item" role="menuitem">Tree Visualizer</a>
+            <a href="tree-traversal.html" class="dropdown-item" role="menuitem">Tree Traversal</a>
+            <a href="binary-search.html" class="dropdown-item" role="menuitem">Learn Binary Search</a>
+            <a href="shortest-path-learning.html" class="dropdown-item" role="menuitem">Learn Shortest Path</a>
+            <a href="divide-and-conquer-learning.html" class="dropdown-item" role="menuitem">Learn Divide &amp; Conquer</a>
+            <a href="matrix-learning.html" class="dropdown-item" role="menuitem">Learn Matrix</a>
+            <a href="graph-learning.html" class="dropdown-item" role="menuitem">Learn Graph</a>
+            <a href="sorting-visualizer.html" class="dropdown-item" role="menuitem">Sorting Visualizer</a>
+            <a href="graph-visualizer.html" class="dropdown-item" role="menuitem">Graph Visualizer</a>
+            <a href="react-playground.html" class="dropdown-item" role="menuitem">React Playground</a>
+            <a href="php-editor.html" class="dropdown-item" role="menuitem">PHP Editor</a>
+            <a href="scala-editor.html" class="dropdown-item" role="menuitem">Scala Editor</a>
+            <a href="pathfinding-visualizer.html" class="dropdown-item" role="menuitem">Pathfinding Visualizer</a>
           </div>
         </li>
         <li class="nav-item has-dropdown">
@@ -684,9 +692,12 @@
               <span class="xp-text" id="xpText">0 / 1000 XP</span>
             </div>
             <div class="level-info">
-              <span class="level-badge" id="levelBadge"
-                >Level 1 - Beginner</span
-              >
+              <span class="level-badge" id="levelBadge" 
+                onclick="openGameModal()" 
+                style="cursor:pointer"
+                title="Click to play DSA games!">
+                Level 1 - Beginner
+              </span>
             </div>
           </div>
           <div class="badges-showcase big-box">
@@ -699,53 +710,93 @@
       </div>
     </section>
 
-    <!-- Chatbot Widget -->
-    <div class="chatbot-widget">
-      <button class="chatbot-toggle" id="chatbotToggle">
-        <i class="fas fa-comments"></i>
-        <span class="chatbot-badge">3</span>
-      </button>
-      <div class="chatbot-window hidden" id="chatbotWindow">
-        <div class="chatbot-header">
-          <h4>Algo Assistant</h4>
-          <button class="chatbot-close" id="chatbotClose">
-            <i class="fas fa-times"></i>
-          </button>
+
+    <!-- Game Modal -->
+    <div
+      class="modal game-modal"
+      id="gameModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="gameModalTitle"
+    >
+      <div class="game-modal-content">
+        <div class="game-modal-header">
+          <h3 id="gameModalTitle">🎮 DSA Game</h3>
+          <button class="modal-close" onclick="closeGameModal()" aria-label="Close game modal">×</button>
         </div>
-        <div class="chatbot-messages" id="chatbotMessages">
-          <div class="message bot">
-            <p>Hi! I'm your DSA assistant. How can I help you today?</p>
+        <div class="game-modal-body" id="gameModalBody">
+
+          <!-- Game Type Selector -->
+          <div id="gameTypeSelector">
+            <h4 style="text-align:center; margin-bottom:1.5rem; color:var(--accent)">Choose Your Game Mode</h4>
+            <div class="game-type-grid">
+              <div class="game-type-card" onclick="startGame('quiz')">
+                <div class="game-type-icon">🧩</div>
+                <h4>Quiz Game</h4>
+                <p>Answer MCQ questions with a 30s timer</p>
+                <span class="game-xp-reward">+20 XP per question</span>
+              </div>
+              <div class="game-type-card" onclick="startGame('speed')">
+                <div class="game-type-icon">⚡</div>
+                <h4>Speed Round</h4>
+                <p>Solve as many as possible in 60 seconds</p>
+                <span class="game-xp-reward">+10 XP per correct</span>
+              </div>
+              <div class="game-type-card" onclick="startGame('complexity')">
+                <div class="game-type-icon">🎯</div>
+                <h4>Complexity Guesser</h4>
+                <p>Guess the Big O of code snippets</p>
+                <span class="game-xp-reward">+15 XP per correct</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="chatbot-input">
-          <input
-            type="text"
-            id="chatbotInput"
-            placeholder="Type your question..."
-          />
-          <button id="chatbotSend">
-            <i class="fas fa-paper-plane"></i>
-          </button>
-        </div>
-        <div class="quick-questions">
-          <button
-            class="quick-q"
-            data-question="What is the time complexity of this problem?"
-          >
-            Time Complexity
-          </button>
-          <button
-            class="quick-q"
-            data-question="Can you give me a hint for this problem?"
-          >
-            Hint
-          </button>
-          <button class="quick-q" data-question="What approach should I use?">
-            Approach
-          </button>
+
+          <!-- Game Play Area -->
+          <div id="gamePlayArea" style="display:none">
+            <div class="game-stats-bar">
+              <span class="game-stat">⏱️ <span id="gameTimer">30</span>s</span>
+              <span class="game-stat">✅ Score: <span id="gameScore">0</span></span>
+              <span class="game-stat">❓ Q: <span id="gameQuestion">1</span>/10</span>
+            </div>
+            <div class="game-question-area">
+              <div class="game-question-text" id="gameQuestionText"></div>
+              <div class="game-options-grid" id="gameOptionsGrid"></div>
+            </div>
+            <div class="game-explanation" id="gameExplanation" style="display:none"></div>
+          </div>
+
+          <!-- Game Results -->
+          <div id="gameResults" style="display:none">
+            <div class="game-results-content">
+              <div class="game-results-icon">🏆</div>
+              <h3 id="gameResultsTitle">Game Complete!</h3>
+              <div class="game-results-stats">
+                <div class="result-stat">
+                  <span class="result-stat-value" id="resultScore">0</span>
+                  <span class="result-stat-label">Score</span>
+                </div>
+                <div class="result-stat">
+                  <span class="result-stat-value" id="resultXP">0</span>
+                  <span class="result-stat-label">XP Earned</span>
+                </div>
+                <div class="result-stat">
+                  <span class="result-stat-value" id="resultAccuracy">0%</span>
+                  <span class="result-stat-label">Accuracy</span>
+                </div>
+              </div>
+              <div class="game-results-buttons">
+                <button class="btn btn-primary" onclick="restartGame()">🔄 Play Again</button>
+                <button class="btn btn-secondary" onclick="showGameTypeSelector()">🎮 Change Mode</button>
+                <button class="btn btn-outline" onclick="closeGameModal()">✖ Close</button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
+    <!-- Chatbot Widget -->
 
     <!-- Code Editor Shortcuts Panel -->
     <div class="shortcuts-panel" id="shortcutsPanel">
@@ -1271,7 +1322,41 @@
     <button id="backToTopBtn" class="back-to-top" aria-label="Back to Top">
       <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Auth Gate Modal -->
+    <div class="modal" id="authGateModal" role="dialog" aria-modal="true" aria-labelledby="authGateTitle">
+      <div class="modal-content auth-gate-modal-content">
+        <button class="modal-close" id="authGateModalClose" aria-label="Close">&times;</button>
+        <div class="auth-gate-icon">
+          <div class="auth-gate-lock-ring">
+            <i class="fas fa-lock"></i>
+          </div>
+        </div>
+        <h2 class="auth-gate-title" id="authGateTitle">Login Required</h2>
+        <p class="auth-gate-subtitle" id="authGateSubtitle">
+          Sign in to unlock this feature and track your progress.
+        </p>
+        <div class="auth-gate-perks">
+          <div class="auth-gate-perk"><i class="fas fa-chart-line"></i> Track your progress &amp; streaks</div>
+          <div class="auth-gate-perk"><i class="fas fa-trophy"></i> Earn XP &amp; unlock badges</div>
+          <div class="auth-gate-perk"><i class="fas fa-users"></i> Join the leaderboard</div>
+        </div>
+        <div class="auth-gate-actions">
+          <a href="/login" id="authGateLoginBtn" class="btn btn-primary auth-gate-btn">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </a>
+          <a href="/signup" id="authGateSignupBtn" class="btn btn-secondary auth-gate-btn">
+            <i class="fas fa-user-plus"></i> Sign Up Free
+          </a>
+        </div>
+        <p class="auth-gate-dismiss">
+          <button class="auth-gate-dismiss-btn" id="authGateDismiss">Maybe later</button>
+        </p>
+      </div>
+    </div>
+
     <script src="auth.js"></script>
     <script src="script.js?v=20260601"></script>
+    <script src="auth-gate.js"></script>
   </body>
 </html>
