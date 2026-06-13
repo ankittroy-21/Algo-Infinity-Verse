@@ -334,7 +334,6 @@ function initSQLEditor() {
   exampleSelect.addEventListener("change", () => {
     editor.value = SQL_EXAMPLES[exampleSelect.value];
     updateLines();
-    runCode();
   });
 
   runBtn.addEventListener("click", runCode);
@@ -342,7 +341,6 @@ function initSQLEditor() {
   resetBtn.addEventListener("click", () => {
     editor.value = SQL_EXAMPLES[exampleSelect.value];
     updateLines();
-    runCode();
   });
 
   copyBtn.addEventListener("click", async () => {
