@@ -125,10 +125,15 @@ function simulateSQL(query) {
 }
 
 function executeSelect(q) {
-  const selectMatch = q.match(/SELECT\s+(.+)\s+FROM\s+(\w+)(?:\s+WHERE\s+(.+))?(?:\s+GROUP\s+BY\s+(.+))?(?:\s+ORDER\s+BY\s+(.+))?(?:\s+LIMIT\s+(\d+))?/i);
+  const selectMatch = q.match(
+    /^SELECT\s+(.+?)\s+FROM\s+(\w+)(?:\s+WHERE\s+(.+?))?(?:\s+GROUP\s+BY\s+(.+?))?(?:\s+ORDER\s+BY\s+(.+?))?(?:\s+LIMIT\s+(\d+))?\s*$/i
+  );
   if (!selectMatch) return { error: "Invalid SELECT syntax." };
 
   let [, columns, tableName, where, groupBy, orderBy, limit] = selectMatch;
+  where = where?.trim();
+  groupBy = groupBy?.trim();
+  orderBy = orderBy?.trim();
   tableName = tableName.toLowerCase();
 
   if (!DB[tableName]) return { error: `Table "${tableName}" not found.` };
@@ -139,7 +144,7 @@ function executeSelect(q) {
   if (where) {
     try {
       // Basic WHERE implementation (e.g., department = 'Engineering')
-      const whereParts = where.match(/(\w+)\s*(=|!=|>|<|>=|<=)\s*(.+)/);
+      const whereParts = where.match(/(\w+)\s*(>=|<=|!=|=|>|<)\s*(.+)/);
       if (whereParts) {
         let [, col, op, val] = whereParts;
         val = val.trim().replace(/^'|'$/g, "");
