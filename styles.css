@@ -5636,7 +5636,7 @@ body.light-mode .nav-auth-link:hover {
 
 
 /*AUTH GATE MODAL*/
-`#authGateModal` {
+#authGateModal {
   z-index: 11000;
 }
 
