@@ -158,11 +158,11 @@ async function executePython(code) {
     const errors = [];
 
     if (data.run && data.run.stderr) {
-      errors.push(...data.run.stderr.split("\\n").filter(l => l.trim()));
+      errors.push(...data.run.stderr.split("\n").filter(l => l.trim()));
     }
 
     if (data.run && data.run.stdout) {
-      output.push(...data.run.stdout.split("\\n").filter(l => l.trim()));
+      output.push(...data.run.stdout.split("\n").filter(l => l.trim()));
     }
 
     if (output.length === 0 && errors.length === 0) {
