@@ -38,16 +38,15 @@
             <a href="index.html#practice" class="dropdown-item" role="menuitem">Practice Problems</a>
             <a href="python-learning.html" class="dropdown-item" role="menuitem">Learn Python</a>
             <a href="javascript-learning.html" class="dropdown-item" role="menuitem">Learn JavaScript</a>
-            <a href="sql-learning.html" class="dropdown-item" role="menuitem">Learn SQL</a>
-            <a href="sql-editor.html" class="dropdown-item" role="menuitem">SQL Editor</a>
+            <a href="java-learning.html" class="dropdown-item" role="menuitem">Learn Java</a>
+            <a href="php-learning.html" class="dropdown-item" role="menuitem">Learn PHP</a>
             <a href="react-playground.html" class="dropdown-item" role="menuitem">React Playground</a>
+            <a href="php-editor.html" class="dropdown-item" role="menuitem">PHP Editor</a>
             <a href="cpp-editor.html" class="dropdown-item" role="menuitem">C++ Editor</a>
             <a href="c-editor.html" class="dropdown-item" role="menuitem">C Editor</a>
             <a href="python-editor.html" class="dropdown-item" role="menuitem">Python Editor</a>
+            <a href="java-editor.html" class="dropdown-item" role="menuitem">Java Editor</a>
             <a href="scala-editor.html" class="dropdown-item active" role="menuitem">Scala Editor</a>
-            <a href="cpp-editor.html" class="dropdown-item" role="menuitem">C++ Editor</a>
-            <a href="c-editor.html" class="dropdown-item" role="menuitem">C Editor</a>
-            <a href="python-editor.html" class="dropdown-item" role="menuitem">Python Editor</a>
             <a href="sorting-visualizer.html" class="dropdown-item" role="menuitem">Sorting Visualizer</a>
             <a href="graph-visualizer.html" class="dropdown-item" role="menuitem">Graph Visualizer</a>
           </div>
@@ -134,9 +133,9 @@
           </div>
           <div class="se-toolbar-right">
             <button id="seRunBtn" class="btn btn-primary se-run-btn"><i class="fas fa-play"></i> Run</button>
-            <button id="seResetBtn" class="se-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
-            <button id="seCopyBtn" class="se-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
-            <button id="seSaveBtn" class="se-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
+            <button id="seResetBtn" class="ce-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
+            <button id="seCopyBtn" class="ce-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
+            <button id="seSaveBtn" class="ce-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
           </div>
         </div>
 
@@ -147,18 +146,18 @@
               <span class="se-lang-badge">Scala</span>
             </div>
             <div class="se-editor-wrap">
-              <div class="se-line-numbers" id="seLineNumbers">1</div>
-              <textarea id="seEditor" class="se-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Scala code editor"></textarea>
+              <div class="se-line-numbers" id="ceLineNumbers">1</div>
+              <textarea id="seEditor" class="ce-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Scala code editor"></textarea>
             </div>
           </div>
 
           <div class="se-output-pane">
             <div class="se-pane-header">
               <span><i class="fas fa-terminal"></i> Output</span>
-              <span id="seStatusBadge" class="se-status-badge se-status-ready">Ready</span>
+              <span id="seStatusBadge" class="ce-status-badge ce-status-ready">Ready</span>
             </div>
-            <div class="se-output-body" id="seOutputBody">
-              <span class="se-output-placeholder">Run your code to see output here...</span>
+            <div class="se-output-body" id="ceOutputBody">
+              <span class="ce-output-placeholder">Run your code to see output here...</span>
             </div>
           </div>
         </div>
@@ -166,10 +165,10 @@
         <div class="se-console">
           <div class="se-console-header">
             <span><i class="fas fa-exclamation-triangle"></i> Errors / Warnings</span>
-            <button class="se-console-clear" id="seConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
+            <button class="ce-console-clear" id="ceConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
           </div>
-          <div class="se-console-body" id="seConsoleBody">
-            <span class="se-console-placeholder">No errors detected.</span>
+          <div class="se-console-body" id="ceConsoleBody">
+            <span class="ce-console-placeholder">No errors detected.</span>
           </div>
         </div>
       </div>
@@ -191,9 +190,11 @@
             <ul>
               <li><a href="index.html#topics">DSA Topics</a></li>
               <li><a href="java-learning.html">Learn Java</a></li>
-              <li><a href="scala-editor.html">Scala Editor</a>
-            <a href="cpp-editor.html" class="dropdown-item" role="menuitem">C++ Editor</a></li>
-              <li><a href="php-editor.html">PHP Editor</a></li>
+              <li><a href="scala-editor.html">Scala Editor</a></li>
+              <li><a href="cpp-editor.html">C++ Editor</a></li>
+              <li><a href="c-editor.html">C Editor</a></li>
+              <li><a href="python-editor.html">Python Editor</a></li>
+              <li><a href="java-editor.html">Java Editor</a></li>
               <li><a href="react-playground.html">React Playground</a></li>
             </ul>
           </div>
