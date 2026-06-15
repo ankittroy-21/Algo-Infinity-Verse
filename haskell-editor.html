@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scala Editor – Live Code Editor | Algo Infinity Verse</title>
+    <title>Haskell Editor – Live Code Editor | Algo Infinity Verse</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="scala-editor.css" />
+    <link rel="stylesheet" href="haskell-editor.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
@@ -46,8 +46,7 @@
             <a href="c-editor.html" class="dropdown-item" role="menuitem">C Editor</a>
             <a href="python-editor.html" class="dropdown-item" role="menuitem">Python Editor</a>
             <a href="java-editor.html" class="dropdown-item" role="menuitem">Java Editor</a>
-            <a href="scala-editor.html" class="dropdown-item active" role="menuitem">Scala Editor</a>
-            <a href="haskell-editor.html" class="dropdown-item" role="menuitem">Haskell Editor</a>
+            <a href="haskell-editor.html" class="dropdown-item active" role="menuitem">Haskell Editor</a>
             <a href="sorting-visualizer.html" class="dropdown-item" role="menuitem">Sorting Visualizer</a>
             <a href="graph-visualizer.html" class="dropdown-item" role="menuitem">Graph Visualizer</a>
           </div>
@@ -94,82 +93,82 @@
       </div>
     </nav>
 
-    <section class="hero se-hero">
+    <section class="hero hs-hero">
       <div class="hero-background">
         <div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
       </div>
       <div class="hero-content">
         <h1 class="hero-title">
-          <span class="title-line">Write Scala.</span>
-          <span class="main-title" style="background: linear-gradient(135deg, #dc322f 0%, #e8612c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Run It Instantly.</span>
-          <span class="subtitle">In-Browser Scala Editor</span>
+          <span class="title-line">Write Haskell.</span>
+          <span class="main-title" style="background: linear-gradient(135deg, #5e5086 0%, #8f4e8b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Purely Functional.</span>
+          <span class="subtitle">In-Browser Haskell Editor</span>
         </h1>
-        <p class="se-hero-desc">Write Scala code, see simulated output instantly. Supports variables, functions, collections, classes, and pattern matching.</p>
+        <p class="hs-hero-desc">Write Haskell code and see real-time execution output. Perfect for learning lazy evaluation, pure functions, and strong typing.</p>
         <div class="hero-buttons">
-          <a href="#editor" class="btn btn-primary" style="background: linear-gradient(135deg, #dc322f 0%, #e8612c 100%); border: none; color: #fff; font-weight: 600;">
+          <a href="#editor" class="btn btn-primary" style="background: linear-gradient(135deg, #5e5086 0%, #8f4e8b 100%); border: none; color: #fff; font-weight: 600;">
             <i class="fas fa-play"></i> Open Editor
           </a>
-          <a href="java-learning.html" class="btn btn-secondary"><i class="fas fa-book-open"></i> Learn JVM Languages</a>
+          <a href="#" class="btn btn-secondary"><i class="fas fa-book-open"></i> Haskell Docs</a>
         </div>
-        <div class="se-note">
+        <div class="hs-note">
           <i class="fas fa-info-circle"></i>
-          Execution is simulated in the browser. For real Scala, use <code>scalac</code> / sbt locally or Scastie online.
+          Execution is powered by the Piston API in a secure backend sandbox. Standard input is currently not supported.
         </div>
       </div>
     </section>
 
-    <section id="editor" class="section se-section">
-      <div class="se-container">
-        <div class="se-toolbar">
-          <div class="se-toolbar-left">
-            <span class="se-label"><i class="fas fa-s se-scala-icon"></i> Scala Editor</span>
-            <select id="seExampleSelect" class="se-select" aria-label="Load example">
+    <section id="editor" class="section hs-section">
+      <div class="hs-container">
+        <div class="hs-toolbar">
+          <div class="hs-toolbar-left">
+            <span class="hs-label"><i class="fas fa-code hs-haskell-icon"></i> Haskell Editor</span>
+            <select id="hsExampleSelect" class="hs-select" aria-label="Load example">
               <option value="hello">Hello World</option>
-              <option value="variables">Variables & Types</option>
-              <option value="collections">Collections & Loops</option>
-              <option value="function">Functions & Lambdas</option>
-              <option value="class">Classes & OOP</option>
-              <option value="pattern">Pattern Matching</option>
+              <option value="factorial">Factorial (Recursion)</option>
+              <option value="lists">List Comprehensions</option>
+              <option value="fibonacci">Fibonacci Sequence</option>
+              <option value="mapfilter">Map & Filter</option>
+              <option value="types">Custom Types</option>
             </select>
           </div>
-          <div class="se-toolbar-right">
-            <button id="seRunBtn" class="btn btn-primary se-run-btn"><i class="fas fa-play"></i> Run</button>
-            <button id="seResetBtn" class="ce-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
-            <button id="seCopyBtn" class="ce-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
-            <button id="seSaveBtn" class="ce-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
+          <div class="hs-toolbar-right">
+            <button id="hsRunBtn" class="btn btn-primary hs-run-btn"><i class="fas fa-play"></i> Run</button>
+            <button id="hsResetBtn" class="hs-icon-btn" title="Reset to example" aria-label="Reset to example"><i class="fas fa-undo"></i></button>
+            <button id="hsCopyBtn" class="hs-icon-btn" title="Copy code" aria-label="Copy code to clipboard"><i class="fas fa-copy"></i></button>
+            <button id="hsSaveBtn" class="hs-icon-btn" title="Save to browser storage" aria-label="Save code to browser storage"><i class="fas fa-save"></i></button>
           </div>
         </div>
 
-        <div class="se-split">
-          <div class="se-editor-pane">
-            <div class="se-pane-header">
+        <div class="hs-split">
+          <div class="hs-editor-pane">
+            <div class="hs-pane-header">
               <span><i class="fas fa-code"></i> Editor</span>
-              <span class="se-lang-badge">Scala</span>
+              <span class="hs-lang-badge">Haskell</span>
             </div>
-            <div class="se-editor-wrap">
-              <div class="se-line-numbers" id="ceLineNumbers">1</div>
-              <textarea id="seEditor" class="ce-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Scala code editor"></textarea>
+            <div class="hs-editor-wrap">
+              <div class="hs-line-numbers" id="hsLineNumbers">1</div>
+              <textarea id="hsEditor" class="hs-editor" spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off" aria-label="Haskell code editor"></textarea>
             </div>
           </div>
 
-          <div class="se-output-pane">
-            <div class="se-pane-header">
+          <div class="hs-output-pane">
+            <div class="hs-pane-header">
               <span><i class="fas fa-terminal"></i> Output</span>
-              <span id="seStatusBadge" class="ce-status-badge ce-status-ready">Ready</span>
+              <span id="hsStatusBadge" class="hs-status-badge hs-status-ready">Ready</span>
             </div>
-            <div class="se-output-body" id="ceOutputBody">
-              <span class="ce-output-placeholder">Run your code to see output here...</span>
+            <div class="hs-output-body" id="hsOutputBody">
+              <span class="hs-output-placeholder">Run your code to see output here...</span>
             </div>
           </div>
         </div>
 
-        <div class="se-console">
-          <div class="se-console-header">
+        <div class="hs-console">
+          <div class="hs-console-header">
             <span><i class="fas fa-exclamation-triangle"></i> Errors / Warnings</span>
-            <button class="ce-console-clear" id="ceConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
+            <button class="hs-console-clear" id="hsConsoleClear" aria-label="Clear error console"><i class="fas fa-trash"></i> Clear</button>
           </div>
-          <div class="se-console-body" id="ceConsoleBody">
-            <span class="ce-console-placeholder">No errors detected.</span>
+          <div class="hs-console-body" id="hsConsoleBody">
+            <span class="hs-console-placeholder">No errors detected.</span>
           </div>
         </div>
       </div>
@@ -190,13 +189,9 @@
             <h4>Quick Links</h4>
             <ul>
               <li><a href="index.html#topics">DSA Topics</a></li>
-              <li><a href="java-learning.html">Learn Java</a></li>
-              <li><a href="scala-editor.html">Scala Editor</a></li>
-              <li><a href="haskell-editor.html">Haskell Editor</a></li>
-              <li><a href="cpp-editor.html">C++ Editor</a></li>
+              <li><a href="c-learning.html">Learn C</a></li>
               <li><a href="c-editor.html">C Editor</a></li>
-              <li><a href="python-editor.html">Python Editor</a></li>
-              <li><a href="java-editor.html">Java Editor</a></li>
+              <li><a href="haskell-editor.html">Haskell Editor</a></li>
               <li><a href="react-playground.html">React Playground</a></li>
             </ul>
           </div>
@@ -209,7 +204,7 @@
 
     <script src="./auth.js"></script>
     <script src="./script.js"></script>
-    <script src="./theme.js"></script>
-    <script src="./scala-editor.js"></script>
+    <script src="theme.js"></script>
+    <script src="./haskell-editor.js"></script>
   </body>
 </html>
